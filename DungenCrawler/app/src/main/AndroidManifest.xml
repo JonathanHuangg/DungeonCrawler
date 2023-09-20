@@ -13,13 +13,16 @@
         android:theme="@style/Theme.DungenCrawler"
         tools:targetApi="31">
         <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".GameEndActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".GameActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
