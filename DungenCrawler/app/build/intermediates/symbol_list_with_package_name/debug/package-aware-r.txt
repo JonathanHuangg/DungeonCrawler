@@ -3181,6 +3181,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id exitButton
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3418,6 +3419,7 @@ id src_in
 id src_over
 id standard
 id start
+id startButton
 id startHorizontal
 id startToEnd
 id startVertical

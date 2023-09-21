@@ -5,7 +5,9 @@ color white
 drawable dungenintro
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id exitButton
 id imageView
+id startButton
 id textView
 layout activity_game
 layout activity_game_end
