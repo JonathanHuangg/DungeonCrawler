@@ -28,7 +28,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.DungenCrawler" >
         <activity
-            android:name="com.example.dungencrawler.WelcomeActivity"
+            android:name="com.example.dungencrawler.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.example.dungencrawler.GameEndActivity"
@@ -39,7 +39,7 @@
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.example.dungencrawler.MainActivity"
+            android:name="com.example.dungencrawler.WelcomeActivity"
             android:exported="true"
             android:screenOrientation="landscape" >
             <intent-filter>

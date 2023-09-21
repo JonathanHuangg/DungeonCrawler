@@ -2914,6 +2914,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dungenintro
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -3006,9 +3007,6 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Character1RadioButton
-id Character2RadioButton
-id Character3RadioButton
 id FUNCTION
 id META
 id NO_DEBUG
@@ -3116,7 +3114,6 @@ id center_vertical
 id chain
 id chain2
 id chains
-id characterRadioGroup
 id checkbox
 id checked
 id chronometer
@@ -3156,7 +3153,6 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
-id difficultyRadioGroup
 id dimensions
 id direct
 id disableHome
@@ -3177,9 +3173,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
-id easyRadioButton
 id edge
-id editTextText
 id edit_query
 id elastic
 id embed
@@ -3187,7 +3181,6 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
-id enterNameLabel
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3216,7 +3209,6 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id hardRadioButton
 id header_title
 id hideable
 id home
@@ -3229,6 +3221,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id indeterminate
@@ -3275,7 +3268,6 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
-id mediumRadioButton
 id message
 id middle
 id mini
@@ -3395,8 +3387,6 @@ id search_view_status_bar_spacer
 id search_view_toolbar
 id search_view_toolbar_container
 id search_voice_btn
-id selectCharacterLabel
-id selectDifficultyLabel
 id select_dialog_listview
 id selected
 id selection_type
@@ -3459,6 +3449,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
