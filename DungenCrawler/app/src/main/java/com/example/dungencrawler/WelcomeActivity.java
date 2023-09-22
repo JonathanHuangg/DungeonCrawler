@@ -35,7 +35,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void openConfigurationScreen() {
-        Intent intent = new Intent(this, MainActivity.class); //this may need to change based on screen
+        //this may need to change based on screen
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
