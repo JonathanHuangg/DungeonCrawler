@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DungenCrawler</string>
+    <string name="temp_name">Temporary Name</string>
 </resources>

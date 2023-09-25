@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">DungenCrawler</string>
+    <string name="temp_name">Temporary Name</string>
     <style name="Base.Theme.DungenCrawler" parent="Theme.Material3.DayNight.NoActionBar">
         
         
