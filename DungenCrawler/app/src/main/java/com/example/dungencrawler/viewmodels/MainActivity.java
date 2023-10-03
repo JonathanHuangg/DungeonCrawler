@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.viewmodels;
 import android.content.Intent;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,17 +8,23 @@ import android.text.TextWatcher;
 import android.text.Editable;
 import android.widget.RadioGroup;
 
+import com.example.dungencrawler.R;
+import com.example.dungencrawler.model.Difficulty;
+
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_view);
 
         EditText userName = findViewById(R.id.userName);
         ImageButton nextButton = findViewById(R.id.configNextButton);
         ImageButton lastButton = findViewById(R.id.configLastButton);
 
         nextButton.setEnabled(false);
+
+        //verify text
         userName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
@@ -35,29 +41,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) { }
         });
+
+        //Return to start
         lastButton.setOnClickListener(v -> {
-            Intent startPage = new Intent(MainActivity.this, WelcomeActivity.class);
-            startActivity(startPage);
+            MainActivity.this.finish();
         });
 
+        //Go to Game
         nextButton.setOnClickListener(v -> {
             RadioGroup difficultyRadioGroup = findViewById(R.id.difficultyRadioGroup);
             RadioGroup characterRadioGroup = findViewById(R.id.characterRadioGroup);
-            double difficulty;
+
+            Difficulty difficulty;
             int character;
+            String username;
 
             int difficultyCheckedId = difficultyRadioGroup.getCheckedRadioButtonId();
             int characterCheckedId = characterRadioGroup.getCheckedRadioButtonId();
 
             // Set difficulty
             if (difficultyCheckedId == R.id.easyButton) {
-                difficulty = 0.5;
+                difficulty = Difficulty.easy;
             } else if (difficultyCheckedId == R.id.mediumButton) {
-                difficulty = 0.75;
+                difficulty = Difficulty.medium;
             } else if (difficultyCheckedId == R.id.hardButton) {
-                difficulty = 1;
+                difficulty = Difficulty.hard;
             } else {
-                difficulty = 0.5; // Default to easy
+                difficulty = Difficulty.easy; // Default to easy
             }
 
             // Set character
@@ -71,9 +81,15 @@ public class MainActivity extends AppCompatActivity {
                 character = 1; // Default to first character
             }
 
+            //get username
+            EditText ign = (EditText) findViewById(R.id.userName);
+            String editTextIgn = ign.getText().toString();
+
+
             Intent game = new Intent(MainActivity.this, GameActivity.class);
             game.putExtra("difficulty", difficulty);
             game.putExtra("character", character);
+            game.putExtra("username", editTextIgn);
             startActivity(game);
             finish();
         });

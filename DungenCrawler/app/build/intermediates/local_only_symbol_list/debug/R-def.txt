@@ -43,10 +43,10 @@ id textView_ChosenDifficulty
 id textView_playerName
 id textView_startingHealth
 id userName
-layout activity_game
-layout activity_game_end
-layout activity_main
-layout activity_welcome
+layout activity_game_end_view
+layout activity_game_view
+layout activity_main_view
+layout activity_welcome_view
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
