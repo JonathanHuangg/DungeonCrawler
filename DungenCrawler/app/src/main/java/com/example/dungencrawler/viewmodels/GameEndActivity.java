@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.viewmodels;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.dungencrawler.R;
+
 public class GameEndActivity extends AppCompatActivity {
     private Button newGamebutton;
     private TextView lb;
@@ -16,7 +18,8 @@ public class GameEndActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_end);
+        setContentView(R.layout.activity_game_end_view);
+
         newGamebutton = findViewById(R.id.newGameButton);
         lb = findViewById(R.id.leaderboard);
         DisplayMetrics displayMetrics = new DisplayMetrics();

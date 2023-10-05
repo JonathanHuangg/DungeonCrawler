@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.viewmodels;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.dungencrawler.R;
+
 public class WelcomeActivity extends AppCompatActivity {
     private Button button;
     private Button extButton;
@@ -14,7 +16,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_welcome_view);
 
         button = (Button) findViewById(R.id.startButton);
         button.setOnClickListener(new View.OnClickListener() {
