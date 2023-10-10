@@ -74,8 +74,10 @@ public class GameActivity extends AppCompatActivity {
         v.setEnabled(false);
         Log.d("success", "button should be disabled");
     }
-    public void navigateToEndScreen(View v) {
+    public void navigateToEndScreen(View v, String name, int score) {
         Intent i = new Intent(GameActivity.this, GameEndActivity.class);
+        i.putExtra("name", name);
+        i.putExtra("score", score);
         startActivity(i);
     }
 
