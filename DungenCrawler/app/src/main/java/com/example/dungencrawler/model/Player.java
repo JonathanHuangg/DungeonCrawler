@@ -3,9 +3,16 @@ public class Player {
     //more to be added as game develops
     private String name;
     private int health;
+    private static Player player;
     public Player(String name, int health) {
         this.name = name;
         this.health = health;
+    }
+    public static Player getPlayer() {
+        if (player == null) {
+            player = new Player("name", 200);
+        }
+        return player;
     }
 
     //getters
