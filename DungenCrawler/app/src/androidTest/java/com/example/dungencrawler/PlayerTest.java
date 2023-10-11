@@ -1,5 +1,6 @@
 package com.example.dungencrawler;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import com.example.dungencrawler.model.Difficulty;
 import com.example.dungencrawler.model.Player;
@@ -42,4 +43,19 @@ public class PlayerTest {
         player1.setName("jess rigs");
         assertEquals(true, Player.validateName(player1.getName()));
     }
+
+    @Test
+    public void validateUserInputNull() {
+        Player player = new Player(null, 1000);
+        player.setName(null);
+        assertFalse(Player.validateName(player.getName()));
+    }
+
+    @Test
+    public void validateUserInputSpace() {
+        Player player = new Player(null, 1000);
+        player.setName("    ");
+        assertFalse(Player.validateName(player.getName()));
+    }
+
 }
