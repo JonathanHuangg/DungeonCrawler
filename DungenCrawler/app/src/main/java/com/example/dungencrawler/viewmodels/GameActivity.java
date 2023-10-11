@@ -111,6 +111,7 @@ public class GameActivity extends AppCompatActivity {
         Intent i = new Intent(GameActivity.this, GameEndActivity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
+        finish();
         startActivity(i);
     }
 
