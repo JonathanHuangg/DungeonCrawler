@@ -18,7 +18,7 @@ import com.example.dungencrawler.model.Player;
 public class GameActivity extends AppCompatActivity {
     private Player player;
     private GameConfig game;
-    private int score = 30;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class GameActivity extends AppCompatActivity {
         player = new Player(username, 200);
 
         //Initialize game configurations
-        game = new GameConfig(Difficulty.easy);
+        game = new GameConfig(Difficulty.easy, 30);
 
         // Set the Character
         View dC1 = findViewById(R.id.dc1);
@@ -77,19 +77,19 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 toggleButton(goToEndScreenButton);
-                navigateToEndScreen(username, score);
+                navigateToEndScreen(username, game.getScore());
             }
 
         });
 
         //score timer system
         TextView countdownTimer = findViewById(R.id.countdownTimer);
-        new CountDownTimer(score * 1000, 1000) {
+        new CountDownTimer(game.getCountdownTime() * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 int secondsLeft = (int) millisUntilFinished / 1000;
                 countdownTimer.setText("seconds remaining: " + secondsLeft);
-                score = secondsLeft;
+                game.setScore(secondsLeft);
             }
 
             public void onFinish() {
@@ -106,10 +106,6 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("name", name);
         i.putExtra("score", score);
         startActivity(i);
-    }
-
-    public void updateScore(int newScore) {
-        score = newScore;
     }
 
 }
