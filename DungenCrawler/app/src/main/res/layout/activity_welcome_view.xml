@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:gravity="center_vertical"
-        android:text="                Dungeon Crawler"
+        android:text="                Dungen Crawler"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"

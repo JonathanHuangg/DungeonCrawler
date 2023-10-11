@@ -14,6 +14,7 @@ import com.example.dungencrawler.R;
 import com.example.dungencrawler.model.Leaderboard;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GameEndActivity extends AppCompatActivity {
     private Button newGamebutton;
@@ -21,11 +22,13 @@ public class GameEndActivity extends AppCompatActivity {
 
     private TextView lbvals;
 
+    private TextView recentScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end_view);
-        TextView recentScore = findViewById(R.id.recentScore);
+        recentScore = findViewById(R.id.recentScore);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getString("name") != null) {
@@ -44,6 +47,7 @@ public class GameEndActivity extends AppCompatActivity {
         this.setNewGameButtonSize(width, height);
         this.setLbTitleSize(width, height);
         this.setLbValsUI(width, height);
+        this.setRecentScore(width, height);
         newGamebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +55,12 @@ public class GameEndActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    private void setRecentScore(int width, int height) {
+        recentScore.setTextSize((float) (recentScore.getTextSize() * ((width * height) / (2280 * 1014)) / 2.3));
+        recentScore.setX(0);
+        recentScore.setY((float) (height * 0.8) - 72 * (height / 1014));
     }
 
     private void setNewGameButtonSize(int width, int height) {
@@ -68,18 +78,19 @@ public class GameEndActivity extends AppCompatActivity {
 
     private void setLbValsUI(int width, int height) {
         lbvals.setTextSize((float) (lbvals.getTextSize() * ((width * height) / (2280 * 1014)) / 2.3));
+        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
         ArrayList<String> arr = Leaderboard.getLeaderboard();
         String lbString = "";
         for (int i = 0; i < arr.size(); i++) {
-            lbString = lbString + arr.get(i) + "\n";
+            lbString = lbString + arr.get(i) + " " + currentDateTimeString + "\n";
         }
         lbvals.setGravity(Gravity.CENTER_HORIZONTAL);
-        lbvals.setY(height / 5);
+        lbvals.setY((float)(height / 4.8));
         lbvals.setText(lbString);
     }
 
     private void restartGame() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
     }
 

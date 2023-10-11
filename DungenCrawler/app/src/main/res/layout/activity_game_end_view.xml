@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameEndActivity"
+    tools:context=".viewmodels.GameActivity"
     android:background="@drawable/dungenintro">
 
     <Button
@@ -23,7 +23,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:text="Leaderboard"
-        android:textColor="#FFFFFF"
+        android:textColor="#CF9633"
         android:textSize="37sp"
         android:typeface="monospace"
         tools:ignore="MissingConstraints" />
@@ -34,18 +34,19 @@
         android:layout_height="fill_parent"
         android:text="Leaderboard"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="23sp"
         android:typeface="monospace"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="96dp" />
 
     <TextView
         android:id="@+id/recentScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="TEMP_SCORE"
-        android:textColor="#E91E63"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/newGameButton"
-        app:layout_constraintTop_toTopOf="@+id/leaderboard" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="24sp"
+        android:typeface="monospace"
+        android:text="Your Score:"
+        android:textColor="#FFFFFF"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
