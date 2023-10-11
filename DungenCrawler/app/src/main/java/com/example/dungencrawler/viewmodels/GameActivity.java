@@ -18,6 +18,7 @@ import com.example.dungencrawler.model.Player;
 public class GameActivity extends AppCompatActivity {
     private Player player;
     private GameConfig game;
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,6 @@ public class GameActivity extends AppCompatActivity {
         TextView chosenDifficulty = findViewById(R.id.textView_ChosenDifficulty);
         TextView startingHealth = findViewById(R.id.textView_startingHealth);
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
-
 
         String username = i.getStringExtra("username");
         playerName.setText(username);
@@ -84,7 +84,7 @@ public class GameActivity extends AppCompatActivity {
 
         //score timer system
         TextView countdownTimer = findViewById(R.id.countdownTimer);
-        new CountDownTimer(game.getCountdownTime() * 1000, 1000) {
+        timer = new CountDownTimer(game.getCountdownTime() * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 int secondsLeft = (int) millisUntilFinished / 1000;
@@ -92,14 +92,9 @@ public class GameActivity extends AppCompatActivity {
                 game.setScore(secondsLeft);
             }
 
-            // Edison's implementation
             public void onFinish() {
                 navigateToEndScreen(player.getName(), 0);
             }
-            // Justin's implementation
-//            public void onFinish() {
-//                countdownTimer.setText("done!");
-//            }
 
         }.start();
     }
@@ -108,10 +103,12 @@ public class GameActivity extends AppCompatActivity {
         v.setEnabled(false);
     }
     public void navigateToEndScreen(String name, int score) {
+        if (timer != null) {
+            timer.cancel();
+        }
         Intent i = new Intent(GameActivity.this, GameEndActivity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
-        finish();
         startActivity(i);
     }
 
