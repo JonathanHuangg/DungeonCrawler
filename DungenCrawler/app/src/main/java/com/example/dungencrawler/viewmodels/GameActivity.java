@@ -88,13 +88,19 @@ public class GameActivity extends AppCompatActivity {
 
             public void onTick(long millisUntilFinished) {
                 int secondsLeft = (int) millisUntilFinished / 1000;
-                countdownTimer.setText("seconds remaining: " + secondsLeft);
+                countdownTimer.setText("Score: " + secondsLeft);
                 game.setScore(secondsLeft);
             }
 
+            // Edison's implementation
             public void onFinish() {
-                countdownTimer.setText("done!");
+                navigateToEndScreen(player.getName(), 0);
             }
+            // Justin's implementation
+//            public void onFinish() {
+//                countdownTimer.setText("done!");
+//            }
+
         }.start();
     }
 
