@@ -37,4 +37,15 @@
         android:textSize="24sp"
         android:typeface="monospace"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/recentScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="TEMP_SCORE"
+        android:textColor="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/newGameButton"
+        app:layout_constraintTop_toTopOf="@+id/leaderboard" />
 </androidx.constraintlayout.widget.ConstraintLayout>

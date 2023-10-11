@@ -24,11 +24,16 @@ public class GameEndActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_end_view);
+        TextView recentScore = findViewById(R.id.recentScore);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getString("name") != null) {
-            updateLeaderboard(extras.getString("name"), extras.getInt("score"));
+            String userName = extras.getString("name");
+            int score = extras.getInt("score");
+            updateLeaderboard(userName, score);
+            recentScore.setText("Last Attempt By: " + userName + ", " + score);
         }
-        setContentView(R.layout.activity_game_end_view);
         newGamebutton = findViewById(R.id.newGameButton);
         lb = findViewById(R.id.leaderboard);
         lbvals = findViewById(R.id.lbvals);
