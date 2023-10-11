@@ -1,12 +1,18 @@
 package com.example.dungencrawler.model;
+
+import android.graphics.Bitmap;
+
 public class Player {
     //more to be added as game develops
     private String name;
     private int health;
     private static Player player;
+    private Bitmap icon;
     public Player(String name, int health) {
-        this.name = name;
-        this.health = health;
+        if (validateName(name)) {
+            setName(name);
+        }
+        setHealth(health);
     }
     public static Player getPlayer() {
         if (player == null) {
@@ -28,7 +34,14 @@ public class Player {
         this.name = name;
     }
     public void setHealth(int health) {
-        this.health = health;
+        if (health > 0) {
+            this.health = health;
+        }
+    }
+
+    //check username
+    public static boolean validateName(String name) {
+        return (name != null && !name.isEmpty() && !name.trim().isEmpty());
     }
 
 }

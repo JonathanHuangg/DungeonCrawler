@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 import com.example.dungencrawler.R;
 import com.example.dungencrawler.model.Difficulty;
+import com.example.dungencrawler.model.Player;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                boolean isValid = validateName(charSequence.toString());
+                boolean isValid = Player.validateName(charSequence.toString());
                 nextButton.setEnabled(isValid);
 
                 if (!isValid) {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Validate name input
-    private boolean validateName(String name) {
-        return name != null && !name.trim().isEmpty();
-    }
+    //public boolean validateName(String name) {
+        //return name != null && !name.trim().isEmpty();
+    //}
 }
