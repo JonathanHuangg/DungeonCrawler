@@ -22,4 +22,18 @@ public class GameConfigTest {
         conf.setDifficulty(Difficulty.medium);
         assertEquals(conf.getDifficulty(), Difficulty.medium);
     }
+
+    @Test
+    public void testGameConfigCountdownTime() {
+        GameConfig conf = new GameConfig(Difficulty.hard, 30);
+        assertEquals(conf.getCountdownTime(), 30);
+    }
+
+    @Test
+    public void testGameConfigScore() {
+        GameConfig conf = new GameConfig(Difficulty.hard, 30);
+        conf.setScore(50);
+        assertEquals(conf.getScore(), 50);
+    }
+
 }
