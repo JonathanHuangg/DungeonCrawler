@@ -58,6 +58,8 @@ layout activity_game_end_view
 layout activity_game_view
 layout activity_main_view
 layout activity_room1_view
+layout activity_room2_view
+layout activity_room3_view
 layout activity_welcome_view
 mipmap ic_launcher
 mipmap ic_launcher_round

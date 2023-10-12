@@ -82,6 +82,8 @@ public class GameActivity extends AppCompatActivity {
 
         });
 
+        /*
+
         //score timer system
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         timer = new CountDownTimer(game.getCountdownTime() * 1000, 1000) {
@@ -97,6 +99,8 @@ public class GameActivity extends AppCompatActivity {
             }
 
         }.start();
+
+         */
     }
 
     private void toggleButton(View v) {

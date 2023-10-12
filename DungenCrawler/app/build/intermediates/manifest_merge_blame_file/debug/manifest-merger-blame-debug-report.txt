@@ -20,7 +20,7 @@
 15-->[androidx.core:core:1.9.0] /Users/jess/.gradle/caches/transforms-3/0bb5616a7558933ce9ef66db5210a361/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:5:5-38:19
+17-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:5:5-46:19
 18        android:allowBackup="true"
 18-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -56,58 +56,74 @@
 35-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:20:9-33
 36            android:screenOrientation="landscape" />
 36-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:21:9-46
-37        <activity android:name="com.example.dungencrawler.viewmodels.GameEndActivity" />
-37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:22:9-23:58
-37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:23:13-55
-38        <activity
-38-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:24:9-27:53
-39            android:name="com.example.dungencrawler.viewmodels.GameActivity"
-39-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:25:13-52
-40            android:exported="false"
-40-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:26:13-37
-41            android:screenOrientation="landscape" />
-41-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:27:13-50
-42        <activity
-42-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:28:9-37:20
-43            android:name="com.example.dungencrawler.viewmodels.WelcomeActivity"
-43-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:29:13-55
-44            android:exported="true"
-44-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:30:13-36
-45            android:screenOrientation="landscape" >
-45-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:31:13-50
-46            <intent-filter>
-46-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:32:13-36:29
-47                <action android:name="android.intent.action.MAIN" />
-47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:33:17-69
-47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:33:25-66
-48
-49                <category android:name="android.intent.category.LAUNCHER" />
-49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:35:17-77
-49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:35:27-74
-50            </intent-filter>
-51        </activity>
-52
-53        <provider
-53-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-54            android:name="androidx.startup.InitializationProvider"
-54-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-55            android:authorities="com.example.dungencrawler.androidx-startup"
-55-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-56            android:exported="false" >
-56-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-57            <meta-data
-57-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-58                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-58-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-59                android:value="androidx.startup" />
-59-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
-60            <meta-data
-60-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-61                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-61-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-62                android:value="androidx.startup" />
-62-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-63        </provider>
-64    </application>
-65
-66</manifest>
+37        <activity
+37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:22:9-25:53
+38            android:name="com.example.dungencrawler.viewmodels.Room2Activity"
+38-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:23:13-53
+39            android:exported="false"
+39-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:24:13-37
+40            android:screenOrientation="landscape" />
+40-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:25:13-50
+41        <activity
+41-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:26:9-29:53
+42            android:name="com.example.dungencrawler.viewmodels.Room3Activity"
+42-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:27:13-53
+43            android:exported="false"
+43-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:28:13-37
+44            android:screenOrientation="landscape" />
+44-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:29:13-50
+45        <activity android:name="com.example.dungencrawler.viewmodels.GameEndActivity" />
+45-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:30:9-31:58
+45-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:31:13-55
+46        <activity
+46-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:32:9-35:53
+47            android:name="com.example.dungencrawler.viewmodels.GameActivity"
+47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:33:13-52
+48            android:exported="false"
+48-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:34:13-37
+49            android:screenOrientation="landscape" />
+49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:35:13-50
+50        <activity
+50-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:36:9-45:20
+51            android:name="com.example.dungencrawler.viewmodels.WelcomeActivity"
+51-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:37:13-55
+52            android:exported="true"
+52-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:38:13-36
+53            android:screenOrientation="landscape" >
+53-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:39:13-50
+54            <intent-filter>
+54-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:40:13-44:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:41:17-69
+55-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:41:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:43:17-77
+57-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:43:27-74
+58            </intent-filter>
+59        </activity>
+60
+61        <provider
+61-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+62            android:name="androidx.startup.InitializationProvider"
+62-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+63            android:authorities="com.example.dungencrawler.androidx-startup"
+63-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+64            android:exported="false" >
+64-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+65            <meta-data
+65-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+66-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+67                android:value="androidx.startup" />
+67-->[androidx.emoji2:emoji2:1.2.0] /Users/jess/.gradle/caches/transforms-3/316a02c860c73ab94686517a17339332/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+69-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+70                android:value="androidx.startup" />
+70-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/jess/.gradle/caches/transforms-3/b53648139df62eed3ac1693b02c07adb/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+71        </provider>
+72    </application>
+73
+74</manifest>

@@ -34,6 +34,14 @@
             android:name="com.example.dungencrawler.viewmodels.Room1Activity"
             android:exported="false"
             android:screenOrientation="landscape" />
+        <activity
+            android:name="com.example.dungencrawler.viewmodels.Room2Activity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.example.dungencrawler.viewmodels.Room3Activity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity android:name="com.example.dungencrawler.viewmodels.GameEndActivity" />
         <activity
             android:name="com.example.dungencrawler.viewmodels.GameActivity"

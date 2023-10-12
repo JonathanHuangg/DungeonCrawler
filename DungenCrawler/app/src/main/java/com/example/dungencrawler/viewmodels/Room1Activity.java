@@ -23,9 +23,6 @@ public class Room1Activity extends AppCompatActivity {
     int [] blocks = {
             R.drawable.lavatexture,
             R.drawable.cobblestonetexture,
-            R.drawable.leaftexture,
-            R.drawable.goldtexture,
-            R.drawable.grasstexture
     };
     private CountDownTimer timer;
     int widthOfBlock, noOfBlocks = 50, widthOfScreen, heightOfScreen;
