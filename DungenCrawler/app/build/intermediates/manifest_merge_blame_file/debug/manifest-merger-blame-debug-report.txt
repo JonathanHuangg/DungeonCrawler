@@ -20,7 +20,7 @@
 15-->[androidx.core:core:1.9.0] /Users/jess/.gradle/caches/transforms-3/0bb5616a7558933ce9ef66db5210a361/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:5:5-37:19
+17-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:5:5-38:19
 18        android:allowBackup="true"
 18-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -43,46 +43,47 @@
 29        android:theme="@style/Theme.DungenCrawler" >
 29-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:13:9-51
 30        <activity
-30-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:15:9-18:40
+30-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:15:9-17:40
 31            android:name="com.example.dungencrawler.viewmodels.MainActivity"
-31-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:17:13-52
-32            android:exported="false"
-32-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:18:13-37
-33            android:screenOrientation="landscape" />
-33-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:16:13-50
-34        <activity
-34-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:19:9-22:53
-35            android:name="com.example.dungencrawler.viewmodels.GameEndActivity"
-35-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:20:13-55
-36            android:exported="false"
-36-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:21:13-37
-37            android:screenOrientation="landscape" />
-37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:22:13-50
+31-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:16:13-52
+32            android:exported="false" />
+32-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:17:13-37
+33        <activity
+33-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:18:9-21:49
+34            android:name="com.example.dungencrawler.viewmodels.Room1Activity"
+34-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:19:9-49
+35            android:exported="false"
+35-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:20:9-33
+36            android:screenOrientation="landscape" />
+36-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:21:9-46
+37        <activity android:name="com.example.dungencrawler.viewmodels.GameEndActivity" />
+37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:22:9-23:58
+37-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:23:13-55
 38        <activity
-38-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:23:9-26:53
+38-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:24:9-27:53
 39            android:name="com.example.dungencrawler.viewmodels.GameActivity"
-39-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:24:13-52
+39-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:25:13-52
 40            android:exported="false"
-40-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:25:13-37
+40-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:26:13-37
 41            android:screenOrientation="landscape" />
-41-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:26:13-50
+41-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:27:13-50
 42        <activity
-42-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:27:9-36:20
+42-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:28:9-37:20
 43            android:name="com.example.dungencrawler.viewmodels.WelcomeActivity"
-43-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:28:13-55
+43-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:29:13-55
 44            android:exported="true"
-44-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:29:13-36
+44-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:30:13-36
 45            android:screenOrientation="landscape" >
-45-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:30:13-50
+45-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:31:13-50
 46            <intent-filter>
-46-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:31:13-35:29
+46-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:32:13-36:29
 47                <action android:name="android.intent.action.MAIN" />
-47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:32:17-69
-47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:32:25-66
+47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:33:17-69
+47-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:33:25-66
 48
 49                <category android:name="android.intent.category.LAUNCHER" />
-49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:34:17-77
-49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:34:27-74
+49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:35:17-77
+49-->/Users/jess/Code/2340/CS2340B_Team42/DungenCrawler/app/src/main/AndroidManifest.xml:35:27-74
 50            </intent-filter>
 51        </activity>
 52

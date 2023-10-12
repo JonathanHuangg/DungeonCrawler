@@ -15,7 +15,7 @@ public class CobbleTile extends Tile {
     public CobbleTile(Context context, Rect mapLocationRect) {
         super(mapLocationRect);
 
-        int textureResourceId = R.drawable.cobbletexture;
+        int textureResourceId = R.drawable.cobblestonetexture;
         cobblestoneTexture = BitmapFactory.decodeResource(context.getResources(), textureResourceId);
     }
 

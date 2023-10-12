@@ -2,13 +2,19 @@ R_DEF: Internal format may change without notice
 local
 color black
 color white
+drawable cobblestonetexture
 drawable custom_radio_outline
 drawable dc1
 drawable dc2
 drawable dc3
 drawable dungenintro
+drawable goldtexture
+drawable grasstexture
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable lavatexture
+drawable leaftexture
+drawable netheracktexture
 drawable white_outline
 id EnterNameTextView
 id backTextView
@@ -45,10 +51,12 @@ id textView
 id textView_ChosenDifficulty
 id textView_playerName
 id textView_startingHealth
+id tilemap
 id userName
 layout activity_game_end_view
 layout activity_game_view
 layout activity_main_view
+layout activity_room1_view
 layout activity_welcome_view
 mipmap ic_launcher
 mipmap ic_launcher_round

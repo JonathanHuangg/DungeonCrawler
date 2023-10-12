@@ -29,12 +29,12 @@
         android:theme="@style/Theme.DungenCrawler" >
         <activity
             android:name="com.example.dungencrawler.viewmodels.MainActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
+            android:exported="false" />
         <activity
-            android:name="com.example.dungencrawler.viewmodels.GameEndActivity"
+            android:name="com.example.dungencrawler.viewmodels.Room1Activity"
             android:exported="false"
             android:screenOrientation="landscape" />
+        <activity android:name="com.example.dungencrawler.viewmodels.GameEndActivity" />
         <activity
             android:name="com.example.dungencrawler.viewmodels.GameActivity"
             android:exported="false"
