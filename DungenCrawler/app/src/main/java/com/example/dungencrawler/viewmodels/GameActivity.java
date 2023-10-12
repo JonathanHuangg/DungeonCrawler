@@ -102,6 +102,17 @@ public class GameActivity extends AppCompatActivity {
     private void toggleButton(View v) {
         v.setEnabled(false);
     }
+
+    public void navigateToEndScreen(String name, int score) {
+        if (timer != null) {
+            timer.cancel();
+        }
+        Intent i = new Intent(GameActivity.this, Room1Activity.class);
+        i.putExtra("name", name);
+        i.putExtra("score", score);
+        startActivity(i);
+    }
+    /*
     public void navigateToEndScreen(String name, int score) {
         if (timer != null) {
             timer.cancel();
@@ -111,5 +122,6 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("score", score);
         startActivity(i);
     }
+     */
 
 }
