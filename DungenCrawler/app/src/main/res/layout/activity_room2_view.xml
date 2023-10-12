@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context = ".viewmodels.Room1Activity">
+    tools:context = ".viewmodels.Room2Activity">
     <TextView
         android:id="@+id/countdownTimer"
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotationX="0"
-        android:text="Go to Room 2"
+        android:text="Go to Room 3"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />

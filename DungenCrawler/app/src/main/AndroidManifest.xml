@@ -20,6 +20,14 @@
         android:exported="false"
         android:screenOrientation="landscape" />
         <activity
+            android:name=".viewmodels.Room2Activity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".viewmodels.Room3Activity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".viewmodels.GameEndActivity" />
         <activity
             android:name=".viewmodels.GameActivity"

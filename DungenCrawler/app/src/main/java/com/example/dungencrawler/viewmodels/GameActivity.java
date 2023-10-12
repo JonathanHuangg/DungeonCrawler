@@ -110,6 +110,7 @@ public class GameActivity extends AppCompatActivity {
         Intent i = new Intent(GameActivity.this, Room1Activity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
+        i.putExtra("time", game.getCountdownTime());
         startActivity(i);
     }
     /*

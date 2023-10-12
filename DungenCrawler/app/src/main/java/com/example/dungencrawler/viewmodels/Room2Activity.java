@@ -18,7 +18,7 @@ import com.example.dungencrawler.map.MapLayout;
 import com.example.dungencrawler.map.Tilemap;
 import com.example.dungencrawler.model.GameConfig;
 
-public class Room1Activity extends AppCompatActivity {
+public class Room2Activity extends AppCompatActivity {
 
     int [] blocks = {
             R.drawable.lavatexture,
@@ -40,7 +40,7 @@ public class Room1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room1_view); // Set the layout here
+        setContentView(R.layout.activity_room2_view); // Set the layout here
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         widthOfScreen = displayMetrics.widthPixels;
@@ -117,7 +117,7 @@ public class Room1Activity extends AppCompatActivity {
         if (timer != null) {
             timer.cancel();
         }
-        Intent i = new Intent(Room1Activity.this, Room2Activity.class);
+        Intent i = new Intent(Room2Activity.this, Room3Activity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
         i.putExtra("time", time);
