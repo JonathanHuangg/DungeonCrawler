@@ -3147,6 +3147,7 @@ id contiguous
 id continuousVelocity
 id coordinator
 id cos
+id countdownTimer
 id counterclockwise
 id cradle
 id currentState
@@ -3258,6 +3259,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id lbvals
 id leaderboard
 id left
 id leftToRight
@@ -3373,6 +3375,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id recentScore
 id rectangles
 id reverseSawtooth
 id right

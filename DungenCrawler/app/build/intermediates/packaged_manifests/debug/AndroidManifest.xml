@@ -29,7 +29,8 @@
         android:theme="@style/Theme.DungenCrawler" >
         <activity
             android:name="com.example.dungencrawler.viewmodels.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.example.dungencrawler.viewmodels.GameEndActivity"
             android:exported="false"

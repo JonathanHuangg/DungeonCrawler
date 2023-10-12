@@ -18,6 +18,7 @@ id character3Button
 id characterRadioGroup
 id configLastButton
 id configNextButton
+id countdownTimer
 id dc1
 id dc2
 id dc3
@@ -30,10 +31,12 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id lbvals
 id leaderboard
 id mediumButton
 id nameTextField
 id newGameButton
+id recentScore
 id selectCharacterTextView
 id selectDifficulyTextView
 id startButton

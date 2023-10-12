@@ -3146,6 +3146,7 @@ int id contiguous 0x7f080087
 int id continuousVelocity 0x7f080088
 int id coordinator 0x7f080089
 int id cos 0x7f08008a
+int id countdownTimer 0x7f08020e
 int id counterclockwise 0x7f08008b
 int id cradle 0x7f08008c
 int id currentState 0x7f08008d
@@ -3257,6 +3258,7 @@ int id jumpToEnd 0x7f0800f6
 int id jumpToStart 0x7f0800f7
 int id labeled 0x7f0800f8
 int id layout 0x7f0800f9
+int id lbvals 0x7f08020f
 int id leaderboard 0x7f0800fa
 int id left 0x7f0800fb
 int id leftToRight 0x7f0800fc
@@ -3372,6 +3374,7 @@ int id progress_circular 0x7f080169
 int id progress_horizontal 0x7f08016a
 int id radio 0x7f08016b
 int id ratio 0x7f08016c
+int id recentScore 0x7f080210
 int id rectangles 0x7f08016d
 int id reverseSawtooth 0x7f08016e
 int id right 0x7f08016f
