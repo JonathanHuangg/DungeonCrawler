@@ -4,16 +4,20 @@
         "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/leaftexture.jpeg"
     },
     {
-        "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_grasstexture.jpeg.flat",
-        "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/grasstexture.jpeg"
+        "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_dungenintro.jpg.flat",
         "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/dungenintro.jpg"
     },
     {
-        "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_grasstexture.jpeg.flat",
+        "source": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/grasstexture.jpeg"
+    },
+    {
+        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_game_view.xml.flat",
+        "source": "com.example.dungencrawler.app-main-30:/layout/activity_game_view.xml"
     },
     {
         "merged": "/Users/jess/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_custom_radio_outline.xml.flat",

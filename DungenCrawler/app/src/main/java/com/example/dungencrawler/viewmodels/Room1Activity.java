@@ -14,25 +14,22 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dungencrawler.R;
-import com.example.dungencrawler.map.MapLayout;
-import com.example.dungencrawler.map.Tilemap;
-import com.example.dungencrawler.model.GameConfig;
 
 public class Room1Activity extends AppCompatActivity {
 
-    int [] blocks = {
-            R.drawable.lavatexture,
-            R.drawable.cobblestonetexture,
+    private int[] blocks = {
+        R.drawable.lavatexture,
+        R.drawable.cobblestonetexture,
     };
     private CountDownTimer timer;
-    int widthOfBlock, noOfBlocks = 50, widthOfScreen, heightOfScreen;
-    String username;
-    int score;
-
-    int additionalScore = 0;
-
-    int time;
-    private Tilemap tilemap;
+    private int widthOfBlock;
+    private int noOfBlocks = 50;
+    private int widthOfScreen;
+    private int heightOfScreen;
+    private String username;
+    private int score;
+    private int additionalScore = 0;
+    private int time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +43,7 @@ public class Room1Activity extends AppCompatActivity {
         widthOfBlock = widthOfScreen / noOfBlocks;
         createBoard();
 
-        // Initialize the tilemap from the layout
-        tilemap = findViewById(R.id.tilemap);
 
-        // If you need to set some properties or listeners on tilemap, you can do it here. For example:
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
@@ -68,8 +62,8 @@ public class Room1Activity extends AppCompatActivity {
 
         });
         TextView countdownTimer = findViewById(R.id.countdownTimer);
-        countdownTimer.setX(widthOfScreen/2);
-        countdownTimer.setY(heightOfScreen/10);
+        countdownTimer.setX(widthOfScreen / 2);
+        countdownTimer.setY(heightOfScreen / 10);
         timer = new CountDownTimer(time * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -89,7 +83,7 @@ public class Room1Activity extends AppCompatActivity {
     private void createBoard() {
         GridLayout gridLayout = findViewById(R.id.board);
 
-        gridLayout.setRowCount(noOfBlocks*heightOfScreen/widthOfScreen);
+        gridLayout.setRowCount(noOfBlocks * heightOfScreen / widthOfScreen);
         gridLayout.setColumnCount(noOfBlocks);
 
         gridLayout.getLayoutParams().width = widthOfScreen;
@@ -98,7 +92,7 @@ public class Room1Activity extends AppCompatActivity {
         for (int i = 0; i < gridLayout.getRowCount() * gridLayout.getColumnCount(); i++) {
             ImageView imageView = new ImageView(this);
             imageView.setId(i);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(widthOfBlock,widthOfBlock));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(widthOfBlock, widthOfBlock));
             imageView.setMaxHeight(widthOfBlock);
             imageView.setMaxWidth(widthOfBlock);
             int randomBlock = (int) Math.floor(Math.random() * blocks.length);

@@ -20,13 +20,21 @@ public class GameConfig {
         return difficulty;
     }
 
-    public int getCountdownTime() {return countdownTime;}
+    public int getCountdownTime() {
+        return countdownTime;
+    }
 
-    public void setCountdownTime(int time) {this.countdownTime = time;}
+    public void setCountdownTime(int time) {
+        this.countdownTime = time;
+    }
 
-    public int getScore() {return this.score;}
+    public int getScore() {
+        return this.score;
+    }
 
-    public void setScore(int score) {this.score = score;}
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     //setters
     public void setDifficulty(Difficulty difficulty) {
