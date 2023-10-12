@@ -18,6 +18,7 @@ drawable netheracktexture
 drawable white_outline
 id EnterNameTextView
 id backTextView
+id board
 id character1Button
 id character2Button
 id character3Button
