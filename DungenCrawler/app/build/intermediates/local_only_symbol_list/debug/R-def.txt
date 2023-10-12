@@ -52,7 +52,6 @@ id textView
 id textView_ChosenDifficulty
 id textView_playerName
 id textView_startingHealth
-id tilemap
 id userName
 layout activity_game_end_view
 layout activity_game_view

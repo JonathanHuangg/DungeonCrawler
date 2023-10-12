@@ -6,11 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context = ".viewmodels.Room1Activity">
 
-    <com.example.dungencrawler.map.Tilemap
-        android:id="@+id/tilemap"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <GridLayout
         android:id="@+id/board"
         android:layout_width="match_parent"
