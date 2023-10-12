@@ -58,7 +58,8 @@ public class GameEndActivity extends AppCompatActivity {
     }
 
     private void setRecentScore(int width, int height) {
-        recentScore.setTextSize((float) (recentScore.getTextSize() * ((width * height) / (2280 * 1014)) / 2.3));
+        recentScore.setTextSize((float) (recentScore.getTextSize()
+                * ((width * height) / (2280 * 1014)) / 2.3));
         recentScore.setX(0);
         recentScore.setY((float) (height * 0.8) - 72 * (height / 1014));
     }
@@ -77,15 +78,17 @@ public class GameEndActivity extends AppCompatActivity {
     }
 
     private void setLbValsUI(int width, int height) {
-        lbvals.setTextSize((float) (lbvals.getTextSize() * ((width * height) / (2280 * 1014)) / 2.3));
-        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+        lbvals.setTextSize((float) (lbvals.getTextSize()
+                * ((width * height) / (2280 * 1014)) / 2.3));
+        String currentDateTimeString =
+                java.text.DateFormat.getDateTimeInstance().format(new Date());
         ArrayList<String> arr = Leaderboard.getLeaderboard();
         String lbString = "";
         for (int i = 0; i < arr.size(); i++) {
             lbString = lbString + arr.get(i) + " " + currentDateTimeString + "\n";
         }
         lbvals.setGravity(Gravity.CENTER_HORIZONTAL);
-        lbvals.setY((float)(height / 4.8));
+        lbvals.setY((float) (height / 4.8));
         lbvals.setText(lbString);
     }
 

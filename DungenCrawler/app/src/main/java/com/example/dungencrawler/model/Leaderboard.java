@@ -1,15 +1,14 @@
 package com.example.dungencrawler.model;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-//Keep this ready: PrintWriter wr = new PrintWriter("../../../../../res/leaderboard/leaderboard.txt");
+//Keep this ready: PrintWriter wr =
+// new PrintWriter("../../../../../res/leaderboard/leaderboard.txt");
 public class Leaderboard {
     private static ArrayList<String> leaderboard;
     public static ArrayList<String> getLeaderboard() {
-        if(leaderboard == null) {
-            synchronized (Leaderboard.class){
-                if(leaderboard == null) {
+        if (leaderboard == null) {
+            synchronized (Leaderboard.class) {
+                if (leaderboard == null) {
                     leaderboard = new ArrayList<String>();
                 }
             }

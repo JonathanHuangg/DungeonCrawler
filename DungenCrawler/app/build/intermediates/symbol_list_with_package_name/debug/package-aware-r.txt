@@ -2909,6 +2909,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cobblestonetexture
 drawable custom_radio_outline
 drawable dc1
 drawable dc2
@@ -2919,6 +2920,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable dungenintro
+drawable goldtexture
+drawable grasstexture
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -2933,6 +2936,8 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable lavatexture
+drawable leaftexture
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -2992,6 +2997,7 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable netheracktexture
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3103,6 +3109,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id board
 id bottom
 id bounce
 id bounceBoth
@@ -3147,6 +3154,7 @@ id contiguous
 id continuousVelocity
 id coordinator
 id cos
+id countdownTimer
 id counterclockwise
 id cradle
 id currentState
@@ -3258,6 +3266,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id lbvals
 id leaderboard
 id left
 id leftToRight
@@ -3373,6 +3382,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id recentScore
 id rectangles
 id reverseSawtooth
 id right
@@ -3650,6 +3660,9 @@ layout abc_tooltip
 layout activity_game_end_view
 layout activity_game_view
 layout activity_main_view
+layout activity_room1_view
+layout activity_room2_view
+layout activity_room3_view
 layout activity_welcome_view
 layout custom_dialog
 layout design_bottom_navigation_item
