@@ -108,6 +108,8 @@ public class GameActivity extends AppCompatActivity {
 
         });
 
+        /*
+
         //score timer system
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         timer = new CountDownTimer(game.getCountdownTime() * 1000, 1000) {
@@ -123,11 +125,25 @@ public class GameActivity extends AppCompatActivity {
             }
 
         }.start();
+
+         */
     }
 
     private void toggleButton(View v) {
         v.setEnabled(false);
     }
+
+    public void navigateToEndScreen(String name, int score) {
+        if (timer != null) {
+            timer.cancel();
+        }
+        Intent i = new Intent(GameActivity.this, Room1Activity.class);
+        i.putExtra("name", name);
+        i.putExtra("score", score);
+        i.putExtra("time", game.getCountdownTime());
+        startActivity(i);
+    }
+    /*
     public void navigateToEndScreen(String name, int score) {
         if (timer != null) {
             timer.cancel();
@@ -137,6 +153,7 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("score", score);
         startActivity(i);
     }
+     */
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

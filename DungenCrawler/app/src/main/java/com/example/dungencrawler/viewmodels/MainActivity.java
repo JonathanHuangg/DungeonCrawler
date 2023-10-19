@@ -96,8 +96,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Validate name input
-    //public boolean validateName(String name) {
-        //return name != null && !name.trim().isEmpty();
-    //}
 }
