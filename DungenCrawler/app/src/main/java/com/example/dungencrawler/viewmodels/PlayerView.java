@@ -11,22 +11,26 @@ public class PlayerView extends View {
     //private int character;
     private Bitmap characterBitmap;
 
-    public PlayerView(Context context, Player player, int characterNum) {
+    public PlayerView(Context context, Player player, int charId) {
         super(context);
         this.player = player;
-        //this.character = character;
-        this.characterBitmap = BitmapFactory.decodeResource(getResources(), characterNum);
+        this.characterBitmap = BitmapFactory.decodeResource(getResources(), charId);
+        int width = 200;
+        int height = 200;
+        this.characterBitmap = Bitmap.createScaledBitmap(characterBitmap, width, height, true);
     }
 
-//    public void updatePlayerPosition(float newX, float newY) {
-//        player.setPlayerX(newX);
-//        player.setPlayerY(newY);
-//        invalidate();
-//    }
+    public void updatePlayerPosition(float newX, float newY) {
+        player.setPlayerX(newX);
+        player.setPlayerY(newY);
+        invalidate();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawBitmap(characterBitmap, player.getPlayerX(), player.getPlayerY(), null);
+        if (characterBitmap != null) {
+            canvas.drawBitmap(characterBitmap, player.getPlayerX(), player.getPlayerY(), null);
+        }
     }
 }

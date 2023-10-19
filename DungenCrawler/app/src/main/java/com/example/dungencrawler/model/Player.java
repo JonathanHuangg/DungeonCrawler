@@ -26,23 +26,6 @@ public class Player {
         return player;
     }
 
-//    public void move(String direction) {
-//        switch (direction) {
-//            case "up":
-//                entityStrategy.moveUp(getPlayer());
-//                break;
-//            case "down":
-//                entityStrategy.moveDown(getPlayer());
-//                break;
-//            case "left":
-//                entityStrategy.moveLeft(getPlayer());
-//                break;
-//            case "right":
-//                entityStrategy.moveRight(getPlayer());
-//                break;
-//        }
-//    }
-
     //getters
     public String getName() {
         return name;
@@ -52,6 +35,9 @@ public class Player {
     }
     public float getPlayerX() { return x; }
     public float getPlayerY() { return y; }
+    public EntityStrategy getEntityStrategy() {
+        return entityStrategy;
+    }
 
     //setters
     public void setEntityStrategy(EntityStrategy entityStrategy) {
@@ -79,7 +65,7 @@ public class Player {
     }
 
     public void executeEntityStrategy(Player player, String direction) {
-        entityStrategy.execute(player, direction);
+        entityStrategy.execute(player);
     }
 
 }

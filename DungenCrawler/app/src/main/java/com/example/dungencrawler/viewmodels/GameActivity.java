@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.KeyEvent;
@@ -30,10 +31,6 @@ public class GameActivity extends AppCompatActivity {
     private CountDownTimer timer;
     RelativeLayout gameLayout;
 
-    DisplayMetrics displayMetrics = new DisplayMetrics();
-    int screenWidth = displayMetrics.widthPixels;
-    int screenHeight = displayMetrics.heightPixels;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,23 +50,28 @@ public class GameActivity extends AppCompatActivity {
         int character = i.getIntExtra("character", 1);
         int charId;
         if (character == 1) {
-            charId = R.id.dc1;
+            charId = R.drawable.amongus1;
         } else if (character == 2) {
-            charId = R.id.dc2;
+            charId = R.drawable.amongus2;
         } else {
-            charId = R.id.dc3;
+            charId = R.drawable.amongus3;
         }
 
         //Initialize game objects (player, enemies, etc)
-        player = new Player(username, 200, (float) screenWidth / 2, (float) screenHeight / 2);
+        player = new Player(username, 200, 0, 0);
 
         playerView = new PlayerView(this, player, charId);
-        gameLayout.addView(playerView);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+                params.leftMargin = (int) player.getPlayerX();
+                params.topMargin = (int) player.getPlayerY();
+                gameLayout.addView(playerView, params);
 
         //Initialize game configurations
         game = new GameConfig(Difficulty.easy, 30);
 
-        // Set the Character
+        //Set the Character
 //        View dC1 = findViewById(R.id.dc1);
 //        View dC2 = findViewById(R.id.dc2);
 //        View dC3 = findViewById(R.id.dc3);
@@ -171,7 +173,8 @@ public class GameActivity extends AppCompatActivity {
                 player.setEntityStrategy(new PlayerMovementDown());
                 break;
         }
-        // playerView.updatePlayerPosition(playerX, playerY);
+        player.getEntityStrategy().execute(player);
+        playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
         return true;
     }
