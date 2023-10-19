@@ -2,23 +2,37 @@ package com.example.dungencrawler.viewmodels;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.util.*;
+import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.*;
+import android.widget.RelativeLayout;
 
 import com.example.dungencrawler.R;
 import com.example.dungencrawler.model.Difficulty;
 import com.example.dungencrawler.model.GameConfig;
 import com.example.dungencrawler.model.Player;
+import com.example.dungencrawler.model.PlayerMovementLeft;
+import com.example.dungencrawler.model.PlayerMovementRight;
+import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.PlayerMovementDown;
 
 
 public class GameActivity extends AppCompatActivity {
     private Player player;
+    private PlayerView playerView;
     private GameConfig game;
     private CountDownTimer timer;
+    RelativeLayout gameLayout;
+
+    DisplayMetrics displayMetrics = new DisplayMetrics();
+    int screenWidth = displayMetrics.widthPixels;
+    int screenHeight = displayMetrics.heightPixels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,29 +45,41 @@ public class GameActivity extends AppCompatActivity {
         TextView chosenDifficulty = findViewById(R.id.textView_ChosenDifficulty);
         TextView startingHealth = findViewById(R.id.textView_startingHealth);
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
+        gameLayout = findViewById(R.id.gameLayOut);
 
         String username = i.getStringExtra("username");
         playerName.setText(username);
         Difficulty difficulty = (Difficulty) i.getSerializableExtra("difficulty");
         int character = i.getIntExtra("character", 1);
+        int charId;
+        if (character == 1) {
+            charId = R.id.dc1;
+        } else if (character == 2) {
+            charId = R.id.dc2;
+        } else {
+            charId = R.id.dc3;
+        }
 
         //Initialize game objects (player, enemies, etc)
-        player = new Player(username, 200);
+        player = new Player(username, 200, (float) screenWidth / 2, (float) screenHeight / 2);
+
+        playerView = new PlayerView(this, player, charId);
+        gameLayout.addView(playerView);
 
         //Initialize game configurations
         game = new GameConfig(Difficulty.easy, 30);
 
         // Set the Character
-        View dC1 = findViewById(R.id.dc1);
-        View dC2 = findViewById(R.id.dc2);
-        View dC3 = findViewById(R.id.dc3);
-        if (character == 1) {
-            dC1.setVisibility(View.VISIBLE);
-        } else if (character == 2) {
-            dC2.setVisibility(View.VISIBLE);
-        } else {
-            dC3.setVisibility(View.VISIBLE);
-        }
+//        View dC1 = findViewById(R.id.dc1);
+//        View dC2 = findViewById(R.id.dc2);
+//        View dC3 = findViewById(R.id.dc3);
+//        if (character == 1) {
+//            dC1.setVisibility(View.VISIBLE);
+//        } else if (character == 2) {
+//            dC2.setVisibility(View.VISIBLE);
+//        } else {
+//            dC3.setVisibility(View.VISIBLE);
+//        }
 
         // Set the Difficulty Text
         if (difficulty == Difficulty.medium) {
@@ -110,6 +136,27 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("name", name);
         i.putExtra("score", score);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                player.setEntityStrategy(new PlayerMovementLeft());
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                player.setEntityStrategy(new PlayerMovementRight());
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+                player.setEntityStrategy(new PlayerMovementUp());
+                break;
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                player.setEntityStrategy(new PlayerMovementDown());
+                break;
+        }
+        // playerView.updatePlayerPosition(playerX, playerY);
+        // checkCollisions();
+        return true;
     }
 
 }
