@@ -64,8 +64,7 @@ public class Player {
         return (name != null && !name.isEmpty() && !name.trim().isEmpty());
     }
 
-    public void executeEntityStrategy(Player player, String direction) {
-        entityStrategy.execute(player);
+    public void executeEntityStrategy(Player player, int screenHeight, int screenWidth) {
+        entityStrategy.execute(player, screenHeight, screenWidth);
     }
-
 }

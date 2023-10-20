@@ -15,8 +15,8 @@ public class PlayerView extends View {
         super(context);
         this.player = player;
         this.characterBitmap = BitmapFactory.decodeResource(getResources(), charId);
-        int width = 200;
-        int height = 200;
+        int width = 100;
+        int height = 100;
         this.characterBitmap = Bitmap.createScaledBitmap(characterBitmap, width, height, true);
     }
 
