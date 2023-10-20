@@ -2,9 +2,9 @@ package com.example.dungencrawler.model;
 
 public class PlayerMovementUp implements EntityStrategy, Subscriber {
     @Override
-    public void execute(Player player) {
+    public void execute(Player player, int screenHeight, int screenWidth) {
         if (player.getPlayerY() > 0) {
-            player.setPlayerY(player.getPlayerY() - 20);
+            player.setPlayerY(player.getPlayerY() - 15);
         }
     }
     @Override
