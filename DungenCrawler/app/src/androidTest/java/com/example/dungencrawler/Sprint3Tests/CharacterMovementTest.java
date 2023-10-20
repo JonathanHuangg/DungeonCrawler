@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.Sprint3Tests;
 import static org.junit.Assert.assertEquals;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.Player;
