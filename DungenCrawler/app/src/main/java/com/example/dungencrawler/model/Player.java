@@ -2,6 +2,9 @@ package com.example.dungencrawler.model;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     //more to be added as game develops
     private String name;
@@ -10,6 +13,7 @@ public class Player {
     private static Player player;
     private Bitmap icon;
     private EntityStrategy entityStrategy;
+    private List<Subscriber> subscribers = new ArrayList<>();
     public Player(String name, int health, float x, float y) {
         if (validateName(name)) {
             setName(name);
@@ -53,10 +57,12 @@ public class Player {
     }
     public void setPlayerX(float x) {
         this.x = x;
+        notifySubscribers();
     }
 
     public void setPlayerY(float y) {
         this.y = y;
+        notifySubscribers();
     }
 
     //check username
@@ -66,5 +72,17 @@ public class Player {
 
     public void executeEntityStrategy(Player player, int screenHeight, int screenWidth) {
         entityStrategy.execute(player, screenHeight, screenWidth);
+    }
+
+    public void subscribe(Subscriber subscriber) {
+        subscribers.add(subscriber);
+    }
+    public void unsubscribe(Subscriber subscriber) {
+        subscribers.remove(subscriber);
+    }
+    protected void notifySubscribers() {
+        for (Subscriber subscriber : subscribers) {
+            subscriber.update(this);
+        }
     }
 }

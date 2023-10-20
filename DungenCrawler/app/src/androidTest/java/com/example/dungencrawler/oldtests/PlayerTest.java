@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.oldtests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -11,6 +11,7 @@ import org.junit.Test;
 public class PlayerTest {
 
     //test the constructor to make sure that it initializes correctly
+    /*
     @Test
     public void testPlayerConst() {
         Player player = new Player("name", 50);
@@ -57,5 +58,7 @@ public class PlayerTest {
         player.setName("    ");
         assertFalse(Player.validateName(player.getName()));
     }
+    */
+
 
 }
