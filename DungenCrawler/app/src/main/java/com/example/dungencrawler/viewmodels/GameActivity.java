@@ -30,6 +30,8 @@ public class GameActivity extends AppCompatActivity {
     private GameConfig game;
     private CountDownTimer timer;
     RelativeLayout gameLayout;
+    private int widthOfScreen;
+    private int heightOfScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,11 @@ public class GameActivity extends AppCompatActivity {
         TextView startingHealth = findViewById(R.id.textView_startingHealth);
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
         gameLayout = findViewById(R.id.gameLayOut);
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        widthOfScreen = displayMetrics.widthPixels;
+        heightOfScreen = displayMetrics.heightPixels;
 
         String username = i.getStringExtra("username");
         playerName.setText(username);
@@ -173,7 +180,7 @@ public class GameActivity extends AppCompatActivity {
                 player.setEntityStrategy(new PlayerMovementDown());
                 break;
         }
-        player.getEntityStrategy().execute(player);
+        player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
         return true;
