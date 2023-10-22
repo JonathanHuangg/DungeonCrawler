@@ -27,4 +27,16 @@ public class PlayerTest {
         List<Subscriber> subscriberList = new ArrayList<>();
         assertEquals(subscriberList, player.getSubscribers());
     }
+
+    //test notify() in playerX and playerY
+    @Test
+    public void observerArchitectureNotifyTest() {
+        Player player = new Player("j", 50, 10, 10);
+        player.setPlayerY(50);
+        player.setPlayerX(50);
+        List<Subscriber> subscriberList = new ArrayList<>();
+        assertEquals(subscriberList, player.getSubscribers());
+        assertEquals(50, player.getPlayerX(), 0);
+        assertEquals(50, player.getPlayerY(), 0);
+    }
 }
