@@ -2899,6 +2899,9 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable amongus1
+drawable amongus2
+drawable amongus3
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3128,8 +3131,11 @@ id center_vertical
 id chain
 id chain2
 id chains
+id character1
 id character1Button
+id character2
 id character2Button
+id character3
 id character3Button
 id characterRadioGroup
 id checkbox
@@ -3162,9 +3168,6 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
-id dc1
-id dc2
-id dc3
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -3228,6 +3231,7 @@ id forever
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id gameLayOut
 id ghost_view
 id ghost_view_holder
 id goToEndScreenButton
@@ -3251,9 +3255,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView2
-id imageView3
-id imageView4
 id immediateStop
 id included
 id indeterminate
@@ -3337,7 +3338,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id nameTextField
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view

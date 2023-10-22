@@ -26,6 +26,8 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 
 public class GameActivity extends AppCompatActivity {
     private Player player;
+
+    private int character;
     private PlayerView playerView;
     private GameConfig game;
     private CountDownTimer timer;
@@ -54,7 +56,7 @@ public class GameActivity extends AppCompatActivity {
         String username = i.getStringExtra("username");
         playerName.setText(username);
         Difficulty difficulty = (Difficulty) i.getSerializableExtra("difficulty");
-        int character = i.getIntExtra("character", 1);
+        character = i.getIntExtra("character", 1);
         int charId;
         if (character == 1) {
             charId = R.drawable.amongus1;
@@ -149,6 +151,7 @@ public class GameActivity extends AppCompatActivity {
         Intent i = new Intent(GameActivity.this, Room1Activity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
+        i.putExtra("character", character);
         i.putExtra("time", game.getCountdownTime());
         startActivity(i);
     }
