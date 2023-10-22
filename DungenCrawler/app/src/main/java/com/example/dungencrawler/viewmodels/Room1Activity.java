@@ -43,6 +43,16 @@ public class Room1Activity extends AppCompatActivity {
         widthOfBlock = widthOfScreen / noOfBlocks;
         createBoard();
 
+        // Initialize your ImageView objects
+        ImageView character1 = findViewById(R.id.character1);
+        ImageView character2 = findViewById(R.id.character2);
+        ImageView character3 = findViewById(R.id.character3);
+
+        // Make them invisible
+        character1.setVisibility(View.INVISIBLE);
+        character2.setVisibility(View.INVISIBLE);
+        character3.setVisibility(View.INVISIBLE);
+
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
