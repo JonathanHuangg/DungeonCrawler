@@ -43,7 +43,6 @@ public class Room1Activity extends AppCompatActivity {
         widthOfBlock = widthOfScreen / noOfBlocks;
         createBoard();
 
-
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
         Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
