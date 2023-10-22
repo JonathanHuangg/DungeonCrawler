@@ -8,7 +8,7 @@ public class PlayerMovementUp implements EntityStrategy, Subscriber {
         }
     }
     @Override
-    public void update(Player player) {
-        execute(player);
+    public void update(Player player, int screenHeight, int screenWidth) {
+        execute(player, screenHeight,screenWidth);
     }
 }

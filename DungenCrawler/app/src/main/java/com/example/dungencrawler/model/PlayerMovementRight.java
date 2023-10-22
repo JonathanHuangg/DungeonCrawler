@@ -8,7 +8,7 @@ public class PlayerMovementRight implements EntityStrategy, Subscriber {
         }
     }
     @Override
-    public void update(Player player) {
-        execute(player);
+    public void update(Player player, int screenHeight, int sceenWidth) {
+        execute(player, screenHeight,sceenWidth);
     }
 }

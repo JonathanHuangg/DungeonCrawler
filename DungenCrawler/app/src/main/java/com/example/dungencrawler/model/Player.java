@@ -40,6 +40,9 @@ public class Player {
     public EntityStrategy getEntityStrategy() {
         return entityStrategy;
     }
+    public List<Subscriber> getSubscribers() {
+        return subscribers;
+    }
 
     //setters
     public void setEntityStrategy(EntityStrategy entityStrategy) {
@@ -72,6 +75,8 @@ public class Player {
         entityStrategy.execute(player, screenHeight, screenWidth);
     }
 
+
+    //observer architecture
     public void subscribe(Subscriber subscriber) {
         subscribers.add(subscriber);
     }
@@ -80,7 +85,7 @@ public class Player {
     }
     protected void notifySubscribers() {
         for (Subscriber subscriber : subscribers) {
-            subscriber.update(this);
+            subscriber.update(this,100,100);
         }
     }
 }
