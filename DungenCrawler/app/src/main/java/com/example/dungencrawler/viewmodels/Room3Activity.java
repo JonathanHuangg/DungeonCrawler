@@ -172,7 +172,7 @@ public class Room3Activity extends AppCompatActivity {
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
         String text = "you win!";
-        if (playerView.getPlayerPosition() > 1880) {
+        if (playerView.getPlayerPosition() > 2180) {
             navigateToEndScreen(username, score + additionalScore, text);
         }
 

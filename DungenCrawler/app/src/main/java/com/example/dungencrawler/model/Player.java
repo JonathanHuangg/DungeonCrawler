@@ -70,7 +70,7 @@ public class Player {
     }
 
     public void setPlayerWinResult(int score) {
-        if (score > 60) {
+        if (score > 40) {
             this.winResult = true;
         } else {
             this.winResult = false;
