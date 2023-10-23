@@ -29,14 +29,20 @@ public class GameEndActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end_view);
         recentScore = findViewById(R.id.recentScore);
-
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getString("name") != null) {
             String userName = extras.getString("name");
             int score = extras.getInt("score");
             updateLeaderboard(userName, score);
             recentScore.setText("Last Attempt By: " + userName + ", " + score);
+            //gameResult = extras.getBoolean("result", false);
         }
+
+        View win_icon = findViewById(R.id.JL_winIcon);
+        win_icon.setVisibility(View.VISIBLE);
+        View lose_icon = findViewById(R.id.JL_loseIcon);
+        lose_icon.setVisibility(View.INVISIBLE);
+
         newGamebutton = findViewById(R.id.newGameButton);
         lb = findViewById(R.id.leaderboard);
         lbvals = findViewById(R.id.lbvals);
@@ -56,6 +62,23 @@ public class GameEndActivity extends AppCompatActivity {
 
         });
     }
+
+    /**
+     * Sprint 3 implementation to show winning screen, after user wins
+     * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
+     */
+    private void showWinScreen() {
+
+    }
+
+    /**
+     * Sprint 3 implementation to show loss screen, after user loses
+     * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
+     */
+    private void showLoseScreen() {
+
+    }
+
 
     private void setRecentScore(int width, int height) {
         recentScore.setTextSize((float) (recentScore.getTextSize()
