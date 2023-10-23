@@ -30,19 +30,20 @@ public class GameEndActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_end_view);
         recentScore = findViewById(R.id.recentScore);
         Bundle extras = getIntent().getExtras();
+        int score = 0;
         if (extras != null && extras.getString("name") != null) {
             String userName = extras.getString("name");
-            int score = extras.getInt("score");
+            score = extras.getInt("score");
             updateLeaderboard(userName, score);
             recentScore.setText("Last Attempt By: " + userName + ", " + score);
             //gameResult = extras.getBoolean("result", false);
         }
 
-        View win_icon = findViewById(R.id.JL_winIcon);
-        win_icon.setVisibility(View.VISIBLE);
-        View lose_icon = findViewById(R.id.JL_loseIcon);
-        lose_icon.setVisibility(View.INVISIBLE);
-
+        if (score > 80) {
+            showWinScreen();
+        } else {
+            showLoseScreen();
+        }
         newGamebutton = findViewById(R.id.newGameButton);
         lb = findViewById(R.id.leaderboard);
         lbvals = findViewById(R.id.lbvals);
@@ -68,7 +69,10 @@ public class GameEndActivity extends AppCompatActivity {
      * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
      */
     private void showWinScreen() {
-
+        View win_icon = findViewById(R.id.JL_winIcon);
+        win_icon.setVisibility(View.VISIBLE);
+        View lose_icon = findViewById(R.id.JL_loseIcon);
+        lose_icon.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -76,7 +80,10 @@ public class GameEndActivity extends AppCompatActivity {
      * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
      */
     private void showLoseScreen() {
-
+        View win_icon = findViewById(R.id.JL_winIcon);
+        win_icon.setVisibility(View.INVISIBLE);
+        View lose_icon = findViewById(R.id.JL_loseIcon);
+        lose_icon.setVisibility(View.VISIBLE);
     }
 
 
