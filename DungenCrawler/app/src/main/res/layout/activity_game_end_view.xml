@@ -49,4 +49,26 @@
         android:textColor="#FFFFFF"
         android:typeface="monospace"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/JL_winIcon"
+        android:layout_width="161dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/win_icon"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/JL_loseIcon"
+        android:layout_width="176dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lose_icon"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
