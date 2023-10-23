@@ -99,10 +99,11 @@ public class Room3Activity extends AppCompatActivity {
         }
         additionalScore = time;
         goToEndScreenButton.setOnClickListener(new View.OnClickListener() {
+            String text = "you lose!";
             @Override
             public void onClick(View view) {
                 toggleButton(goToEndScreenButton);
-                navigateToEndScreen(username, score + additionalScore);
+                navigateToEndScreen(username, 30 + additionalScore, text);
             }
 
         });
@@ -116,9 +117,9 @@ public class Room3Activity extends AppCompatActivity {
                 countdownTimer.setText("Score: " + secondsLeft);
                 additionalScore = secondsLeft;
             }
-
+            String text = "you lose!";
             public void onFinish() {
-                navigateToEndScreen(username, score + 0);
+                navigateToEndScreen(username, score + 0, text);
             }
 
         }.start();
@@ -149,13 +150,14 @@ public class Room3Activity extends AppCompatActivity {
         v.setEnabled(false);
     }
 
-    public void navigateToEndScreen(String name, int score) {
+    public void navigateToEndScreen(String name, int score, String text) {
         if (timer != null) {
             timer.cancel();
         }
         Intent i = new Intent(Room3Activity.this, GameEndActivity.class);
         i.putExtra("name", name);
         i.putExtra("score", score);
+        i.putExtra("text", text);
         startActivity(i);
     }
     @Override
@@ -179,8 +181,9 @@ public class Room3Activity extends AppCompatActivity {
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
+        String text = "you win!";
         if (playerView.getPlayerPosition() > 2150) {
-            navigateToEndScreen(username, score);
+            navigateToEndScreen(username, score, text);
         }
 
         return true;
