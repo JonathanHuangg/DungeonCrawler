@@ -3,6 +3,8 @@ package com.example.dungencrawler.Sprint3Tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import android.util.DisplayMetrics;
+
 import com.example.dungencrawler.model.Difficulty;
 import com.example.dungencrawler.model.GameConfig;
 import com.example.dungencrawler.model.Player;
@@ -64,5 +66,30 @@ public class PlayerTest {
         assertEquals(subscriberList, player.getSubscribers());
         assertEquals(50, player.getPlayerX(), 0);
         assertEquals(50, player.getPlayerY(), 0);
+    }
+
+    @Test
+    public void playerTopBoundaryTest() {
+        // Initialize player at (0, 0)
+        Player player = new Player("test", 100, 0, 0);
+
+        // Define screen boundaries
+        final float SCREEN_MIN_Y = 0;
+
+
+        player.setPlayerX(SCREEN_MIN_Y - 10);
+        assertEquals(SCREEN_MIN_Y, player.getPlayerY(), 0.00001);
+    }
+    @Test
+    public void playerBottomBoundaryTest() {
+        // Initialize player at (0, 0)
+        Player player = new Player("test", 100, 0, 0);
+
+        // Define screen boundaries
+        final float SCREEN_MAX_Y = 400;
+
+
+        player.setPlayerX(SCREEN_MAX_Y + 99999);
+        assertEquals(SCREEN_MAX_Y, player.getPlayerY(), 0.00001);
     }
 }

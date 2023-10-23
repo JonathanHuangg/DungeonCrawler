@@ -2940,6 +2940,7 @@ int drawable ic_mtrl_chip_close_circle 0x7f07009e
 int drawable ic_search_black_24 0x7f07009f
 int drawable lavatexture 0x7f0700a0
 int drawable leaftexture 0x7f0700a1
+int drawable lose_icon 0x7f0700ee
 int drawable m3_appbar_background 0x7f0700a2
 int drawable m3_avd_hide_password 0x7f0700a3
 int drawable m3_avd_show_password 0x7f0700a4
@@ -3016,12 +3017,15 @@ int drawable test_level_drawable 0x7f0700ea
 int drawable tooltip_frame_dark 0x7f0700eb
 int drawable tooltip_frame_light 0x7f0700ec
 int drawable white_outline 0x7f0700ed
+int drawable win_icon 0x7f0700ef
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id CTRL 0x7f080003
 int id EnterNameTextView 0x7f080004
 int id FUNCTION 0x7f080005
+int id JL_loseIcon 0x7f08020f
+int id JL_winIcon 0x7f080210
 int id META 0x7f080006
 int id NO_DEBUG 0x7f080007
 int id SHIFT 0x7f080008
