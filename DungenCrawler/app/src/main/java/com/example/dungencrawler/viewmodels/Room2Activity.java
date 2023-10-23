@@ -174,7 +174,7 @@ public class Room2Activity extends AppCompatActivity {
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
-        if (playerView.getPlayerPosition() > 1880) {
+        if (playerView.getPlayerPosition() > 2180) {
             navigateToEndScreen(username, score + additionalScore, character);
         }
 
