@@ -17,9 +17,13 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable lavatexture
 drawable leaftexture
+drawable lose_icon
 drawable netheracktexture
 drawable white_outline
+drawable win_icon
 id EnterNameTextView
+id JL_loseIcon
+id JL_winIcon
 id backTextView
 id board
 id character1

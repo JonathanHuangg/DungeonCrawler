@@ -2941,6 +2941,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable lavatexture
 drawable leaftexture
+drawable lose_icon
 drawable m3_appbar_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
@@ -3017,12 +3018,15 @@ drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable white_outline
+drawable win_icon
 id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id EnterNameTextView
 id FUNCTION
+id JL_loseIcon
+id JL_winIcon
 id META
 id NO_DEBUG
 id SHIFT
