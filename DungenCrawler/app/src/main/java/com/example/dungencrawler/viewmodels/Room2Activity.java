@@ -93,21 +93,12 @@ public class Room2Activity extends AppCompatActivity {
 
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
-        Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
         if (extras != null && extras.getString("name") != null) {
             username = extras.getString("name");
             score = extras.getInt("score");
             time = extras.getInt("time");
         }
         additionalScore = time;
-        goToEndScreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleButton(goToEndScreenButton);
-                navigateToEndScreen(username, score + additionalScore, character);
-            }
-
-        });
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         countdownTimer.setX(widthOfScreen / 2);
         countdownTimer.setY(heightOfScreen / 10);
@@ -183,8 +174,8 @@ public class Room2Activity extends AppCompatActivity {
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
-        if (playerView.getPlayerPosition() > 2150) {
-            navigateToEndScreen(username, 30, character);
+        if (playerView.getPlayerPosition() > 1880) {
+            navigateToEndScreen(username, score + additionalScore, character);
         }
 
         return true;

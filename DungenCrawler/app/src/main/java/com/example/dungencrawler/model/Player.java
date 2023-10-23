@@ -12,6 +12,9 @@ public class Player {
     private Bitmap icon;
     private EntityStrategy entityStrategy;
     private List<Subscriber> subscribers = new ArrayList<>();
+
+    private boolean winResult;
+
     public Player(String name, int health, float x, float y) {
         if (validateName(name)) {
             setName(name);
@@ -64,6 +67,18 @@ public class Player {
     public void setPlayerY(float y) {
         this.y = y;
         notifySubscribers();
+    }
+
+    public void setPlayerWinResult(int score) {
+        if (score > 60) {
+            this.winResult = true;
+        } else {
+            this.winResult = false;
+        }
+    }
+
+    public boolean getPlayerWinResult() {
+        return this.winResult;
     }
 
     //check username

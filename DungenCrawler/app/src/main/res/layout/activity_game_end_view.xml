@@ -40,17 +40,6 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="96dp" />
 
-    <TextView
-        android:id="@+id/recentScore"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="Your Score:"
-        android:textColor="#FFFFFF"
-        android:typeface="monospace"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="33dp" />
-
     <ImageView
         android:id="@+id/JL_winIcon"
         android:layout_width="161dp"
@@ -72,5 +61,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lose_icon"
         tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/recentScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="RECENT_SCORE_HOLD"
+        android:textColor="#EC0808"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
