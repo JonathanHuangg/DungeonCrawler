@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.dungencrawler.R;
 import com.example.dungencrawler.model.Leaderboard;
+import com.example.dungencrawler.model.Player;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +24,9 @@ public class GameEndActivity extends AppCompatActivity {
     private TextView lbvals;
 
     private TextView recentScore;
+
+    private Player player;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +40,14 @@ public class GameEndActivity extends AppCompatActivity {
             score = extras.getInt("score");
             updateLeaderboard(userName, score);
             recentScore.setText("Last Attempt By: " + userName + ", " + score);
-            //gameResult = extras.getBoolean("result", false);
-        }
-
-        if (score > 0) {
-            showWinScreen();
-        } else {
-            showLoseScreen();
+            recentScore.setVisibility(View.VISIBLE);
+            player = new Player(userName, 1, 0, 0);
+            player.setPlayerWinResult(score);
+            if (player.getPlayerWinResult()) {
+                showWinScreen();
+            } else {
+                showLoseScreen();
+            }
         }
         newGamebutton = findViewById(R.id.newGameButton);
         lb = findViewById(R.id.leaderboard);

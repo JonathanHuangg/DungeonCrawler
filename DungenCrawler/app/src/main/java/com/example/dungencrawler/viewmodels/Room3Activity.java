@@ -91,22 +91,12 @@ public class Room3Activity extends AppCompatActivity {
 
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
-        Button goToEndScreenButton = findViewById(R.id.goToEndScreenButton);
         if (extras != null && extras.getString("name") != null) {
             username = extras.getString("name");
             score = extras.getInt("score");
             time = extras.getInt("time");
         }
         additionalScore = time;
-        goToEndScreenButton.setOnClickListener(new View.OnClickListener() {
-            String text = "you lose!";
-            @Override
-            public void onClick(View view) {
-                toggleButton(goToEndScreenButton);
-                navigateToEndScreen(username, 30 + additionalScore, text);
-            }
-
-        });
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         countdownTimer.setX(widthOfScreen / 2);
         countdownTimer.setY(heightOfScreen / 10);
@@ -182,8 +172,8 @@ public class Room3Activity extends AppCompatActivity {
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
         String text = "you win!";
-        if (playerView.getPlayerPosition() > 2150) {
-            navigateToEndScreen(username, score, text);
+        if (playerView.getPlayerPosition() > 1880) {
+            navigateToEndScreen(username, score + additionalScore, text);
         }
 
         return true;
