@@ -39,7 +39,7 @@ public class GameEndActivity extends AppCompatActivity {
             //gameResult = extras.getBoolean("result", false);
         }
 
-        if (score > 80) {
+        if (score > 0) {
             showWinScreen();
         } else {
             showLoseScreen();

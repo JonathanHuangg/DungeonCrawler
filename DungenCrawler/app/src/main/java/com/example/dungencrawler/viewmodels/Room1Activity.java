@@ -185,7 +185,7 @@ public class Room1Activity extends AppCompatActivity {
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
         if (playerView.getPlayerPosition() > 2150) {
-            navigateToEndScreen(username, score, character);
+            navigateToEndScreen(username, 30, character);
         }
 
         return true;
