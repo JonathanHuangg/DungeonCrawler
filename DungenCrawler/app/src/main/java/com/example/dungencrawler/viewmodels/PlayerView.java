@@ -26,6 +26,10 @@ public class PlayerView extends View {
         invalidate();
     }
 
+    public float getPlayerPosition() {
+        return player.getPlayerX();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
