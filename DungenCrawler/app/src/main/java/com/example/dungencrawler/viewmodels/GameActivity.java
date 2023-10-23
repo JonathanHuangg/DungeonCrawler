@@ -2,15 +2,12 @@ package com.example.dungencrawler.viewmodels;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.KeyEvent;
-import android.view.WindowManager;
 import android.widget.*;
 import android.widget.RelativeLayout;
 
@@ -31,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
     private PlayerView playerView;
     private GameConfig game;
     private CountDownTimer timer;
-    RelativeLayout gameLayout;
+    private RelativeLayout gameLayout;
     private int widthOfScreen;
     private int heightOfScreen;
 
@@ -71,26 +68,15 @@ public class GameActivity extends AppCompatActivity {
 
         playerView = new PlayerView(this, player, charId);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
-                params.leftMargin = (int) player.getPlayerX();
-                params.topMargin = (int) player.getPlayerY();
-                gameLayout.addView(playerView, params);
+            RelativeLayout.LayoutParams.WRAP_CONTENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = (int) player.getPlayerX();
+        params.topMargin = (int) player.getPlayerY();
+        gameLayout.addView(playerView, params);
 
         //Initialize game configurations
         game = new GameConfig(Difficulty.easy, 30);
 
-        //Set the Character
-//        View dC1 = findViewById(R.id.dc1);
-//        View dC2 = findViewById(R.id.dc2);
-//        View dC3 = findViewById(R.id.dc3);
-//        if (character == 1) {
-//            dC1.setVisibility(View.VISIBLE);
-//        } else if (character == 2) {
-//            dC2.setVisibility(View.VISIBLE);
-//        } else {
-//            dC3.setVisibility(View.VISIBLE);
-//        }
 
         // Set the Difficulty Text
         if (difficulty == Difficulty.medium) {
@@ -170,18 +156,20 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
-            case KeyEvent.KEYCODE_DPAD_LEFT:
-                player.setEntityStrategy(new PlayerMovementLeft());
-                break;
-            case KeyEvent.KEYCODE_DPAD_RIGHT:
-                player.setEntityStrategy(new PlayerMovementRight());
-                break;
-            case KeyEvent.KEYCODE_DPAD_UP:
-                player.setEntityStrategy(new PlayerMovementUp());
-                break;
-            case KeyEvent.KEYCODE_DPAD_DOWN:
-                player.setEntityStrategy(new PlayerMovementDown());
-                break;
+        case KeyEvent.KEYCODE_DPAD_LEFT:
+            player.setEntityStrategy(new PlayerMovementLeft());
+            break;
+        case KeyEvent.KEYCODE_DPAD_RIGHT:
+            player.setEntityStrategy(new PlayerMovementRight());
+            break;
+        case KeyEvent.KEYCODE_DPAD_UP:
+            player.setEntityStrategy(new PlayerMovementUp());
+            break;
+        case KeyEvent.KEYCODE_DPAD_DOWN:
+            player.setEntityStrategy(new PlayerMovementDown());
+            break;
+        default:
+            break;
         }
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
