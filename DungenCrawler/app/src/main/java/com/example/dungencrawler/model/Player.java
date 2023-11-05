@@ -22,7 +22,6 @@ public class Player {
         setHealth(health);
         setPlayerX(x);
         setPlayerY(y);
-
     }
     public static Player getPlayer() {
         if (player == null) {

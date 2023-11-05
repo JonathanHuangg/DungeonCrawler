@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,6 +15,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dungencrawler.R;
+import com.example.dungencrawler.model.Difficulty;
+import com.example.dungencrawler.model.Enemy;
+import com.example.dungencrawler.model.Enemy1;
+import com.example.dungencrawler.model.Enemy1Creator;
+import com.example.dungencrawler.model.Enemy2;
+import com.example.dungencrawler.model.Enemy2Creator;
+import com.example.dungencrawler.model.EnemyCreator;
 import com.example.dungencrawler.model.Player;
 import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
@@ -41,6 +47,14 @@ public class Room1Activity extends AppCompatActivity {
     private int character;
     private Player player;
     private  PlayerView playerView;
+    private Enemy enemy1;
+    private EnemyCreator enemy1Creator;
+    private EnemyView enemy1View;
+    private Enemy enemy2;
+    private EnemyCreator enemy2Creator;
+    private EnemyView enemy2View;
+    private Difficulty difficulty;
+    private float enemyAttackDamage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +68,17 @@ public class Room1Activity extends AppCompatActivity {
         widthOfScreen = displayMetrics.widthPixels;
         heightOfScreen = displayMetrics.heightPixels;
         gameLayout = findViewById(R.id.gameLayOut);
+        difficulty = (Difficulty) i.getSerializableExtra("difficulty");
 
+        // set enemy attack value based on difficulty
+        if (difficulty == Difficulty.easy) {
+            enemyAttackDamage = 30;
+        } else if (difficulty == Difficulty.medium) {
+            enemyAttackDamage = 40;
+        } else {
+            // hard
+            enemyAttackDamage = 50;
+        }
 
         widthOfBlock = widthOfScreen / noOfBlocks;
 
@@ -79,18 +103,26 @@ public class Room1Activity extends AppCompatActivity {
 
         //Initialize game objects (player, enemies, etc)
         player = new Player(username, 200, 0, 0);
-
         playerView = new PlayerView(this, player, charId);
+
+        enemy1Creator = new Enemy1Creator();
+        enemy1 = enemy1Creator.createEnemy(0, 0, enemyAttackDamage);
+        enemy1View = new EnemyView(this, enemy1, R.drawable.enemy1);
+
+        enemy2Creator = new Enemy2Creator();
+        enemy2 = enemy2Creator.createEnemy(0, 50, enemyAttackDamage);
+        enemy2View = new EnemyView(this, enemy2, R.drawable.enemy2);
+
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.leftMargin = (int) player.getPlayerX();
         params.topMargin = (int) player.getPlayerY();
         gameLayout.addView(playerView, params);
+        gameLayout.addView(enemy1View, params);
+        gameLayout.addView(enemy2View, params);
 
         createBoard();
-
-
 
         // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
@@ -153,6 +185,7 @@ public class Room1Activity extends AppCompatActivity {
         i.putExtra("score", score);
         i.putExtra("time", time);
         i.putExtra("character", character);
+        i.putExtra("difficulty", difficulty);
         startActivity(i);
     }
     @Override
