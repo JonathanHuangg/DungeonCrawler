@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,11 +15,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dungencrawler.R;
+import com.example.dungencrawler.model.Difficulty;
+import com.example.dungencrawler.model.Enemy;
+import com.example.dungencrawler.model.Enemy2Creator;
+import com.example.dungencrawler.model.Enemy4Creator;
+import com.example.dungencrawler.model.EnemyCreator;
 import com.example.dungencrawler.model.Player;
 import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+
+import java.util.Random;
 
 public class Room3Activity extends AppCompatActivity {
 
@@ -40,7 +46,17 @@ public class Room3Activity extends AppCompatActivity {
     private int character;
     private PlayerView playerView;
     private Player player;
+    private Enemy enemy2;
+    private EnemyCreator enemy2Creator;
+    private EnemyView enemy2View;
+    private Enemy enemy4;
+    private EnemyCreator enemy4Creator;
+    private EnemyView enemy4View;
     private RelativeLayout gameLayout;
+    private Difficulty difficulty;
+    private int enemyAttackDamage;
+    private float enemyMovementSpeed;
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +70,20 @@ public class Room3Activity extends AppCompatActivity {
         widthOfScreen = displayMetrics.widthPixels;
         heightOfScreen = displayMetrics.heightPixels;
         gameLayout = findViewById(R.id.gameLayOut);
+        difficulty = (Difficulty) i.getSerializableExtra("difficulty");
 
+        // set enemy attack value and movement speed based on difficulty
+        if (difficulty == Difficulty.easy) {
+            enemyAttackDamage = 30;
+            enemyMovementSpeed = 30;
+        } else if (difficulty == Difficulty.medium) {
+            enemyAttackDamage = 40;
+            enemyMovementSpeed = 40;
+        } else {
+            // hard
+            enemyAttackDamage = 50;
+            enemyMovementSpeed = 50;
+        }
 
         widthOfBlock = widthOfScreen / noOfBlocks;
 
@@ -78,14 +107,32 @@ public class Room3Activity extends AppCompatActivity {
 
         //Initialize game objects (player, enemies, etc)
         player = new Player(username, 200, 0, 0);
-
         playerView = new PlayerView(this, player, charId);
+
+        // Want enemies appear randomly on the right half of the screen
+        int randX1 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
+        int randY1 = random.nextInt(heightOfScreen);
+        int randX2 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
+        int randY2 = random.nextInt(heightOfScreen);
+
+        enemy2Creator = new Enemy2Creator();
+        enemy2 = enemy2Creator.createEnemy(randX1, randY1, enemyAttackDamage);
+        setRandomEnemyDirection(enemy2);
+        enemy2View = new EnemyView(this, enemy2, R.drawable.enemy2);
+
+        enemy4Creator = new Enemy4Creator();
+        enemy4 = enemy4Creator.createEnemy(randX2, randY2, enemyAttackDamage);
+        setRandomEnemyDirection(enemy4);
+        enemy4View = new EnemyView(this, enemy4, R.drawable.enemy4);
+
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.leftMargin = (int) player.getPlayerX();
         params.topMargin = (int) player.getPlayerY();
         gameLayout.addView(playerView, params);
+        gameLayout.addView(enemy2View, params);
+        gameLayout.addView(enemy4View, params);
 
         createBoard();
 
@@ -100,9 +147,15 @@ public class Room3Activity extends AppCompatActivity {
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         countdownTimer.setX(widthOfScreen / 2);
         countdownTimer.setY(heightOfScreen / 10);
-        timer = new CountDownTimer(time * 1000, 1000) {
+        timer = new CountDownTimer(time * 1000, 10) {
 
             public void onTick(long millisUntilFinished) {
+
+                enemy2.enemyMove(difficulty, widthOfScreen, heightOfScreen);
+                enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
+                enemy2View.updateEnemyPosition(enemy2.getEnemyX(),enemy2.getEnemyY());
+                enemy4View.updateEnemyPosition(enemy4.getEnemyX(),enemy4.getEnemyY());
+
                 int secondsLeft = (int) millisUntilFinished / 1000;
                 countdownTimer.setText("Score: " + secondsLeft);
                 additionalScore = secondsLeft;
@@ -139,7 +192,11 @@ public class Room3Activity extends AppCompatActivity {
     private void toggleButton(View v) {
         v.setEnabled(false);
     }
-
+    private void setRandomEnemyDirection(Enemy enemy) {
+        float angle = (float)(Math.random() * 2 * Math.PI);
+        enemy.setEnemyDx((float)Math.cos(angle) * enemyMovementSpeed);
+        enemy.setEnemyDy((float)Math.sin(angle) * enemyMovementSpeed);
+    }
     public void navigateToEndScreen(String name, int score, String text) {
         if (timer != null) {
             timer.cancel();

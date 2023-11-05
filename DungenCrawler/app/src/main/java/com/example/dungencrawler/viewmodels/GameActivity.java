@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
 
     private int character;
     private PlayerView playerView;
+    private Difficulty difficulty;
     private GameConfig game;
     private CountDownTimer timer;
     private RelativeLayout gameLayout;
@@ -52,7 +53,7 @@ public class GameActivity extends AppCompatActivity {
 
         String username = i.getStringExtra("username");
         playerName.setText(username);
-        Difficulty difficulty = (Difficulty) i.getSerializableExtra("difficulty");
+        difficulty = (Difficulty) i.getSerializableExtra("difficulty");
         character = i.getIntExtra("character", 1);
         int charId;
         if (character == 1) {
@@ -65,8 +66,8 @@ public class GameActivity extends AppCompatActivity {
 
         //Initialize game objects (player, enemies, etc)
         player = new Player(username, 200, 0, 0);
-
         playerView = new PlayerView(this, player, charId);
+
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.WRAP_CONTENT,
             RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -139,6 +140,7 @@ public class GameActivity extends AppCompatActivity {
         i.putExtra("score", score);
         i.putExtra("character", character);
         i.putExtra("time", game.getCountdownTime());
+        i.putExtra("difficulty", difficulty);
         startActivity(i);
     }
     /*
