@@ -18,6 +18,12 @@ public class EnemyView extends View {
         this.enemyBitmap = Bitmap.createScaledBitmap(enemyBitmap, width, height, true);
     }
 
+    public void updateEnemyPosition(float newX, float newY) {
+        enemy.setEnemyX(newX);
+        enemy.setEnemyY(newY);
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
