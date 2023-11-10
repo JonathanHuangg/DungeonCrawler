@@ -20,6 +20,7 @@ import com.example.dungencrawler.model.Enemy;
 import com.example.dungencrawler.model.Enemy1Creator;
 import com.example.dungencrawler.model.Enemy2Creator;
 import com.example.dungencrawler.model.EnemyCreator;
+import com.example.dungencrawler.model.Observer;
 import com.example.dungencrawler.model.Player;
 import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
@@ -72,16 +73,18 @@ public class Room1Activity extends AppCompatActivity {
         gameLayout = findViewById(R.id.gameLayOut);
         difficulty = (Difficulty) i.getSerializableExtra("difficulty");
 
+        Observer obs = Observer.getObserver();
+
         // set enemy attack value and movement speed based on difficulty
         if (difficulty == Difficulty.easy) {
-            enemyAttackDamage = 30;
-            enemyMovementSpeed = 30;
+            enemyAttackDamage = 1;
+            enemyMovementSpeed = 20;
         } else if (difficulty == Difficulty.medium) {
-            enemyAttackDamage = 40;
-            enemyMovementSpeed = 40;
+            enemyAttackDamage = 2;
+            enemyMovementSpeed = 30;
         } else {
             // hard
-            enemyAttackDamage = 50;
+            enemyAttackDamage = 5;
             enemyMovementSpeed = 50;
         }
 
@@ -106,8 +109,12 @@ public class Room1Activity extends AppCompatActivity {
         }
 
         //Initialize game objects (player, enemies, etc)
-        player = new Player(username, 200, 0, 0);
+        player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
+        obs.setPlayer(player);
+
+        player.setPlayerX((float) (widthOfScreen * 0.05));
+        player.setPlayerY((float) (heightOfScreen * 0.05));
 
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
@@ -147,6 +154,7 @@ public class Room1Activity extends AppCompatActivity {
         TextView countdownTimer = findViewById(R.id.countdownTimer);
         countdownTimer.setX(widthOfScreen / 2);
         countdownTimer.setY(heightOfScreen / 10);
+
         timer = new CountDownTimer(time * 1000, 10) {
 
             public void onTick(long millisUntilFinished) {
@@ -156,15 +164,26 @@ public class Room1Activity extends AppCompatActivity {
                 enemy1View.updateEnemyPosition(enemy1.getEnemyX(),enemy1.getEnemyY());
                 enemy2View.updateEnemyPosition(enemy2.getEnemyX(),enemy2.getEnemyY());
 
+                obs.enemyUpdate(enemy1);
+                obs.enemyUpdate(enemy2);
+                if(player.getHealth() == 0) {
+                    endGame(username, 0);
+                }
                 int secondsLeft = (int) millisUntilFinished / 1000;
                 countdownTimer.setText("Score: " + secondsLeft + "\nPlayer Location:" +
-                        playerView.getPlayerPosition());
+                        playerView.getPlayerPosition() + "\nPlayer Health:" +
+                        player.getHealth());
                 additionalScore = secondsLeft;
             }
             public void onFinish() {
-                navigateToEndScreen(username, score + 0, character);
+                if(player.getHealth() > 0){
+                    navigateToEndScreen(username, score + 0, character);
+                }
+
+
             }
         }.start();
+
 
     }
 
@@ -202,6 +221,19 @@ public class Room1Activity extends AppCompatActivity {
         i.putExtra("time", time);
         i.putExtra("character", character);
         i.putExtra("difficulty", difficulty);
+        startActivity(i);
+    }
+
+    public void endGame(String name, int score) {
+        if (timer != null) {
+            timer.cancel();
+        }
+        Intent i = new Intent(Room1Activity.this, GameEndActivity.class);
+        i.putExtra("name", name);
+        i.putExtra("score", score);
+        i.putExtra("text", "you lose!");
+        i.putExtra("difficulty", difficulty);
+        System.out.println("This triggered! Game lost.");
         startActivity(i);
     }
     private void setRandomEnemyDirection(Enemy enemy) {

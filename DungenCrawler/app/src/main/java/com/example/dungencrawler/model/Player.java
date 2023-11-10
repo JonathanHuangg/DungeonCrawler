@@ -15,7 +15,7 @@ public class Player {
 
     private boolean winResult;
 
-    public Player(String name, int health, float x, float y) {
+    private Player(String name, int health, float x, float y) {
         if (validateName(name)) {
             setName(name);
         }
@@ -25,7 +25,11 @@ public class Player {
     }
     public static Player getPlayer() {
         if (player == null) {
-            player = new Player("name", 200, 0, 0);
+            synchronized (Observer.class) {
+                if (player == null) {
+                    player = new Player("name", 200, 0, 0);
+                }
+            }
         }
         return player;
     }
@@ -56,6 +60,9 @@ public class Player {
     public void setHealth(int health) {
         if (health > 0) {
             this.health = health;
+        }
+        else {
+            this.health = 0;
         }
     }
     public void setPlayerX(float x) {

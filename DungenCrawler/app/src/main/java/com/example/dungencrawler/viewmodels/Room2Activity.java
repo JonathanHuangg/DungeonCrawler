@@ -20,6 +20,7 @@ import com.example.dungencrawler.model.Enemy;
 import com.example.dungencrawler.model.Enemy3Creator;
 import com.example.dungencrawler.model.Enemy4Creator;
 import com.example.dungencrawler.model.EnemyCreator;
+import com.example.dungencrawler.model.Observer;
 import com.example.dungencrawler.model.Player;
 import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
@@ -73,17 +74,19 @@ public class Room2Activity extends AppCompatActivity {
         heightOfScreen = displayMetrics.heightPixels;
         gameLayout = findViewById(R.id.gameLayOut);
         difficulty = (Difficulty) i.getSerializableExtra("difficulty");
+        Observer obs = Observer.getObserver();
+
 
         // set enemy attack value and movement speed based on difficulty
         if (difficulty == Difficulty.easy) {
-            enemyAttackDamage = 30;
-            enemyMovementSpeed = 30;
+            enemyAttackDamage = 1;
+            enemyMovementSpeed = 20;
         } else if (difficulty == Difficulty.medium) {
-            enemyAttackDamage = 40;
-            enemyMovementSpeed = 40;
+            enemyAttackDamage = 2;
+            enemyMovementSpeed = 30;
         } else {
             // hard
-            enemyAttackDamage = 50;
+            enemyAttackDamage = 5;
             enemyMovementSpeed = 50;
         }
 
@@ -108,8 +111,11 @@ public class Room2Activity extends AppCompatActivity {
         }
 
         //Initialize game objects (player, enemies, etc)
-        player = new Player(username, 200, 0, 0);
+        player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
+
+        player.setPlayerX((float) (widthOfScreen * 0.05));
+        player.setPlayerY((float) (heightOfScreen * 0.05));
 
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
@@ -157,13 +163,22 @@ public class Room2Activity extends AppCompatActivity {
                 enemy3View.updateEnemyPosition(enemy3.getEnemyX(),enemy3.getEnemyY());
                 enemy4View.updateEnemyPosition(enemy4.getEnemyX(),enemy4.getEnemyY());
 
+                obs.enemyUpdate(enemy3);
+                obs.enemyUpdate(enemy4);
+                if(player.getHealth() == 0) {
+                    endGame(username, 0);
+                }
                 int secondsLeft = (int) millisUntilFinished / 1000;
-                countdownTimer.setText("Score: " + secondsLeft);
+                countdownTimer.setText("Score: " + secondsLeft + "\nPlayer Location:" +
+                        playerView.getPlayerPosition() + "\nPlayer Health:" +
+                        player.getHealth());
                 additionalScore = secondsLeft;
             }
 
             public void onFinish() {
-                navigateToEndScreen(username, score + 0, character);
+                if(player.getHealth() > 0){
+                    navigateToEndScreen(username, score + 0, character);
+                }
             }
 
         }.start();
@@ -206,6 +221,17 @@ public class Room2Activity extends AppCompatActivity {
         i.putExtra("score", score);
         i.putExtra("time", time);
         i.putExtra("character", character);
+        i.putExtra("difficulty", difficulty);
+        startActivity(i);
+    }
+    public void endGame(String name, int score) {
+        if (timer != null) {
+            timer.cancel();
+        }
+        Intent i = new Intent(Room2Activity.this, GameEndActivity.class);
+        i.putExtra("name", name);
+        i.putExtra("score", score);
+        i.putExtra("text", "you lose!");
         i.putExtra("difficulty", difficulty);
         startActivity(i);
     }

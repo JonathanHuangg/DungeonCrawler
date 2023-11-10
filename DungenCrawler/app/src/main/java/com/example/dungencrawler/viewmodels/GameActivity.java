@@ -65,7 +65,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         //Initialize game objects (player, enemies, etc)
-        player = new Player(username, 200, 0, 0);
+        player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
