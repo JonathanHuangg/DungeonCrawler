@@ -11,6 +11,7 @@ public class GameConfig {
         this.countdownTime = time;
         this.score = 0;
     }
+
     public GameConfig(Difficulty difficulty) {
         this(difficulty, 30);
     }

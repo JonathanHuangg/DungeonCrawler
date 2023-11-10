@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dungencrawler.R;
+import com.example.dungencrawler.model.Difficulty;
 import com.example.dungencrawler.model.Leaderboard;
 import com.example.dungencrawler.model.Player;
 
@@ -34,15 +35,38 @@ public class GameEndActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_end_view);
         recentScore = findViewById(R.id.recentScore);
         Bundle extras = getIntent().getExtras();
+        Intent i = getIntent();
         int score = 0;
         if (extras != null && extras.getString("name") != null) {
+            System.out.println("This worked");
             String userName = extras.getString("name");
             score = extras.getInt("score");
+            Difficulty difficulty = (Difficulty) i.getSerializableExtra("difficulty");
+            int healthParameter = Player.getPlayer().getHealth();
+            System.out.println(difficulty);
+            if(difficulty == Difficulty.medium) {
+                healthParameter = healthParameter * 3;
+                System.out.println("medium");
+            }
+            else if(difficulty == Difficulty.hard) {
+                healthParameter = healthParameter * 8;
+                System.out.println("hard");
+            }
+            else if(difficulty == Difficulty.easy) {
+                System.out.println("Easy");
+            }
+            score = score + healthParameter;
             updateLeaderboard(userName, score);
             recentScore.setText("Last Attempt By: " + userName + ", " + score);
             recentScore.setVisibility(View.VISIBLE);
-            player = new Player(userName, 1, 0, 0);
+            //player = new Player(userName, 1, 0, 0);
+            player = Player.getPlayer();
+            player.setName(userName);
+            player.setHealth(1);
+            player.setPlayerX(0);
+            player.setPlayerY(0);
             player.setPlayerWinResult(score);
+
             if (player.getPlayerWinResult()) {
                 showWinScreen();
             } else {
