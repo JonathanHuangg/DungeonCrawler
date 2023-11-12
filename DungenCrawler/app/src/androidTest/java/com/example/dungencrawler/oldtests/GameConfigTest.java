@@ -1,4 +1,4 @@
-package com.example.dungencrawler;
+package com.example.dungencrawler.oldtests;
 import static org.junit.Assert.assertEquals;
 
 import com.example.dungencrawler.model.Difficulty;
