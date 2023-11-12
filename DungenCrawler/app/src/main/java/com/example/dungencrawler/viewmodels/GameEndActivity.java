@@ -45,10 +45,10 @@ public class GameEndActivity extends AppCompatActivity {
             int healthParameter = Player.getPlayer().getHealth();
             System.out.println(difficulty);
             if (difficulty == Difficulty.medium) {
-                healthParameter = healthParameter * 3;
+                healthParameter = healthParameter * 6;
                 System.out.println("medium");
             } else if (difficulty == Difficulty.hard) {
-                healthParameter = healthParameter * 8;
+                healthParameter = healthParameter * 16;
                 System.out.println("hard");
             } else if (difficulty == Difficulty.easy) {
                 System.out.println("Easy");
