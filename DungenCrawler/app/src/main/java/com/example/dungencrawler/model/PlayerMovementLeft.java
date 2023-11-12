@@ -4,7 +4,7 @@ public class PlayerMovementLeft implements EntityStrategy, Subscriber {
     @Override
     public void execute(Player player, int screenHeight, int screenWidth) {
         if (player.getPlayerX() > 0) {
-            player.setPlayerX(player.getPlayerX() - 15);
+            player.setPlayerX(player.getPlayerX() - 20);
         }
     }
     @Override

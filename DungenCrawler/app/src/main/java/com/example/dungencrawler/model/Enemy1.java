@@ -11,11 +11,11 @@ public class Enemy1 extends Enemy implements EnemyInterface {
         this.setEnemyY(this.getEnemyY() + this.getEnemyDy());
 
         // Bounce off when collide with the boundary
-        if (this.getEnemyX() < 0 || this.getEnemyX() > screenWidth - 100) {
+        if (this.getEnemyX() < 0 || this.getEnemyX() > screenWidth - 200) {
             this.setEnemyDx(-this.getEnemyDx());
             this.setEnemyX(Math.max(0, Math.min(this.getEnemyX(), screenWidth)));
         }
-        if (this.getEnemyY() < 0 || this.getEnemyY() > screenHeight - 175) {
+        if (this.getEnemyY() < 0 || this.getEnemyY() > screenHeight - 185) {
             this.setEnemyDy(-this.getEnemyDy());
             this.setEnemyY(Math.max(0, Math.min(this.getEnemyY(), screenWidth)));
         }

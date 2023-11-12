@@ -118,9 +118,9 @@ public class Room2Activity extends AppCompatActivity {
         player.setPlayerY((float) (heightOfScreen * 0.05));
 
         // Want enemies appear randomly on the right half of the screen
-        int randX1 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
+        int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
         int randY1 = random.nextInt(heightOfScreen);
-        int randX2 = widthOfScreen / 2 + random.nextInt(widthOfScreen / 2);
+        int randX2 = widthOfScreen / 6 + random.nextInt(widthOfScreen / 2);
         int randY2 = random.nextInt(heightOfScreen);
 
         enemy3Creator = new Enemy3Creator();
