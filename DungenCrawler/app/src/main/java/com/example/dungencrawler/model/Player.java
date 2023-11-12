@@ -15,7 +15,7 @@ public class Player {
 
     private boolean winResult;
 
-    private Player(String name, int health, float x, float y) {
+    public Player(String name, int health, float x, float y) {
         if (validateName(name)) {
             setName(name);
         }
