@@ -113,8 +113,8 @@ public class Room1Activity extends AppCompatActivity {
         playerView = new PlayerView(this, player, charId);
         obs.setPlayer(player);
 
-        player.setPlayerX((float) (widthOfScreen * 0.05));
-        player.setPlayerY((float) (heightOfScreen * 0.05));
+        player.setPlayerX((float) (widthOfScreen * 0.03));
+        player.setPlayerY((float) (heightOfScreen * 0.03));
 
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
@@ -262,7 +262,7 @@ public class Room1Activity extends AppCompatActivity {
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
         // checkCollisions();
-        if (playerView.getPlayerPosition() > 2180) {
+        if (playerView.getPlayerPosition() > 2100) {
             navigateToEndScreen(username, score + additionalScore, character);
         }
 
