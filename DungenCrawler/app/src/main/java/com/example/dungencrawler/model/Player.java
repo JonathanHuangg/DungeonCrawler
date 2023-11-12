@@ -7,7 +7,8 @@ public class Player {
     //more to be added as game develops
     private String name;
     private int health;
-    private float x, y;
+    private float x;
+    private float y;
     private static Player player;
     private Bitmap icon;
     private EntityStrategy entityStrategy;
@@ -41,8 +42,10 @@ public class Player {
     public int getHealth() {
         return health;
     }
-    public float getPlayerX() { return x; }
-    public float getPlayerY() { return y; }
+    public float getPlayerX() {
+        return x; }
+    public float getPlayerY() {
+        return y; }
     public EntityStrategy getEntityStrategy() {
         return entityStrategy;
     }
@@ -60,8 +63,7 @@ public class Player {
     public void setHealth(int health) {
         if (health > 0) {
             this.health = health;
-        }
-        else {
+        } else {
             this.health = 0;
         }
     }
@@ -106,7 +108,7 @@ public class Player {
     }
     protected void notifySubscribers() {
         for (Subscriber subscriber : subscribers) {
-            subscriber.update(this,100,100);
+            subscriber.update(this, 100, 100);
         }
     }
 }

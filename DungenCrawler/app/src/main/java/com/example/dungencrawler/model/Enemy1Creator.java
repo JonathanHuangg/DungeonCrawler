@@ -1,5 +1,4 @@
 package com.example.dungencrawler.model;
-import com.example.dungencrawler.model.Enemy;
 
 public class Enemy1Creator extends EnemyCreator {
     @Override

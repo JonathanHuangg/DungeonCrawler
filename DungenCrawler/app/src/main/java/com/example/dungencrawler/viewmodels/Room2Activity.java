@@ -58,7 +58,7 @@ public class Room2Activity extends AppCompatActivity {
     private Difficulty difficulty;
     private float enemyAttackDamage;
     private float enemyMovementSpeed;
-    Random random = new Random();
+    private Random random = new Random();
 
 
     @Override
@@ -160,23 +160,23 @@ public class Room2Activity extends AppCompatActivity {
 
                 enemy3.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
-                enemy3View.updateEnemyPosition(enemy3.getEnemyX(),enemy3.getEnemyY());
-                enemy4View.updateEnemyPosition(enemy4.getEnemyX(),enemy4.getEnemyY());
+                enemy3View.updateEnemyPosition(enemy3.getEnemyX(), enemy3.getEnemyY());
+                enemy4View.updateEnemyPosition(enemy4.getEnemyX(), enemy4.getEnemyY());
 
                 obs.enemyUpdate(enemy3);
                 obs.enemyUpdate(enemy4);
-                if(player.getHealth() == 0) {
+                if (player.getHealth() == 0) {
                     endGame(username, 0);
                 }
                 int secondsLeft = (int) millisUntilFinished / 1000;
-                countdownTimer.setText("Score: " + secondsLeft + "\nPlayer Location:" +
-                        playerView.getPlayerPosition() + "\nPlayer Health:" +
-                        player.getHealth());
+                countdownTimer.setText("Score: " + secondsLeft + "\nPlayer Location:"
+                        + playerView.getPlayerPosition() + "\nPlayer Health:"
+                        + player.getHealth());
                 additionalScore = secondsLeft;
             }
 
             public void onFinish() {
-                if(player.getHealth() > 0){
+                if (player.getHealth() > 0) {
                     navigateToEndScreen(username, score + 0, character);
                 }
             }
@@ -208,9 +208,9 @@ public class Room2Activity extends AppCompatActivity {
         v.setEnabled(false);
     }
     private void setRandomEnemyDirection(Enemy enemy) {
-        float angle = (float)(Math.random() * 2 * Math.PI);
-        enemy.setEnemyDx((float)Math.cos(angle) * enemyMovementSpeed);
-        enemy.setEnemyDy((float)Math.sin(angle) * enemyMovementSpeed);
+        float angle = (float) (Math.random() * 2 * Math.PI);
+        enemy.setEnemyDx((float) Math.cos(angle) * enemyMovementSpeed);
+        enemy.setEnemyDy((float) Math.sin(angle) * enemyMovementSpeed);
     }
     public void navigateToEndScreen(String name, int score, int character) {
         if (timer != null) {

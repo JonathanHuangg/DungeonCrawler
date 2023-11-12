@@ -1,6 +1,6 @@
 package com.example.dungencrawler.model;
 
-public class Enemy1 extends Enemy implements EnemyInterface{
+public class Enemy1 extends Enemy implements EnemyInterface {
     public Enemy1(float x, float y, float attackDamage) {
         super(x, y, attackDamage);
     }

@@ -44,15 +44,13 @@ public class GameEndActivity extends AppCompatActivity {
             Difficulty difficulty = (Difficulty) i.getSerializableExtra("difficulty");
             int healthParameter = Player.getPlayer().getHealth();
             System.out.println(difficulty);
-            if(difficulty == Difficulty.medium) {
+            if (difficulty == Difficulty.medium) {
                 healthParameter = healthParameter * 3;
                 System.out.println("medium");
-            }
-            else if(difficulty == Difficulty.hard) {
+            } else if (difficulty == Difficulty.hard) {
                 healthParameter = healthParameter * 8;
                 System.out.println("hard");
-            }
-            else if(difficulty == Difficulty.easy) {
+            } else if (difficulty == Difficulty.easy) {
                 System.out.println("Easy");
             }
             score = score + healthParameter;
@@ -98,10 +96,10 @@ public class GameEndActivity extends AppCompatActivity {
      * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
      */
     private void showWinScreen() {
-        View win_icon = findViewById(R.id.JL_winIcon);
-        win_icon.setVisibility(View.VISIBLE);
-        View lose_icon = findViewById(R.id.JL_loseIcon);
-        lose_icon.setVisibility(View.INVISIBLE);
+        View winIcon = findViewById(R.id.JL_winIcon);
+        winIcon.setVisibility(View.VISIBLE);
+        View loseIcon = findViewById(R.id.JL_loseIcon);
+        loseIcon.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -109,10 +107,10 @@ public class GameEndActivity extends AppCompatActivity {
      * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
      */
     private void showLoseScreen() {
-        View win_icon = findViewById(R.id.JL_winIcon);
-        win_icon.setVisibility(View.INVISIBLE);
-        View lose_icon = findViewById(R.id.JL_loseIcon);
-        lose_icon.setVisibility(View.VISIBLE);
+        View winIcon = findViewById(R.id.JL_winIcon);
+        winIcon.setVisibility(View.INVISIBLE);
+        View loseIcon = findViewById(R.id.JL_loseIcon);
+        loseIcon.setVisibility(View.VISIBLE);
     }
 
 
