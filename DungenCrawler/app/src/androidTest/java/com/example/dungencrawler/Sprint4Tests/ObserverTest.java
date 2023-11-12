@@ -23,6 +23,7 @@ public class ObserverTest {
         Player pl = (Player) field.get(obs);
         assertEquals(pl, player);
     }
+    @Test
     public void testCollision() {
         Player player = Player.getPlayer();
         Observer obs = Observer.getObserver();
