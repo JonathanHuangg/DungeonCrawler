@@ -96,21 +96,33 @@ public class GameEndActivity extends AppCompatActivity {
      * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
      */
     private void showWinScreen() {
+        //shows win icons
         View winIcon = findViewById(R.id.JL_winIcon);
         winIcon.setVisibility(View.VISIBLE);
         View loseIcon = findViewById(R.id.JL_loseIcon);
         loseIcon.setVisibility(View.INVISIBLE);
+        //shows win background
+        View winBackground = findViewById(R.id.win_background);
+        View loseBackground = findViewById(R.id.lose_background);
+        winBackground.setVisibility(View.VISIBLE);
+        loseBackground.setVisibility(View.INVISIBLE);
     }
 
     /**
      * Sprint 3 implementation to show loss screen, after user loses
-     * System pause for 5 seconds, before disabling win screen to show leaderboard/scores
+     *
      */
     private void showLoseScreen() {
+        //shows lose icon
         View winIcon = findViewById(R.id.JL_winIcon);
         winIcon.setVisibility(View.INVISIBLE);
         View loseIcon = findViewById(R.id.JL_loseIcon);
         loseIcon.setVisibility(View.VISIBLE);
+        //shows lose background
+        View winBackground = findViewById(R.id.win_background);
+        View loseBackground = findViewById(R.id.lose_background);
+        winBackground.setVisibility(View.VISIBLE);
+        loseBackground.setVisibility(View.INVISIBLE);
     }
 
 
