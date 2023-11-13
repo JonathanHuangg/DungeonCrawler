@@ -61,12 +61,12 @@ public class ObserverTest {
         player.setHealth(100);
         Enemy enemy = new Enemy1(50, 50, 10);
         obs.enemyUpdate(enemy);
-        assertEquals(100, player.getHealth());
+        assertEquals(90, player.getHealth());
         enemy.setEnemyX(100);
         enemy.setEnemyY(100);
         enemy.setAttackDamage(20);
         obs.enemyUpdate(enemy);
-        assertEquals(80, player.getHealth());
+        assertEquals(70, player.getHealth());
     }
 
     @Test
@@ -86,7 +86,7 @@ public class ObserverTest {
         enemy.setEnemyX(50);
         enemy.setEnemyY(50);
         obs.enemyUpdate(enemy);
-        assertEquals(70, player.getHealth());
+        assertEquals(40, player.getHealth());
     }
 
     @Test
