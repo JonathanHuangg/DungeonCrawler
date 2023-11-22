@@ -241,6 +241,12 @@ public class Room1Activity extends AppCompatActivity {
         enemy.setEnemyDx((float) Math.cos(angle) * enemyMovementSpeed);
         enemy.setEnemyDy((float) Math.sin(angle) * enemyMovementSpeed);
     }
+
+    public boolean playerEnemyCollide(Enemy enemy, Player player) {
+        return Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
+                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100;
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
