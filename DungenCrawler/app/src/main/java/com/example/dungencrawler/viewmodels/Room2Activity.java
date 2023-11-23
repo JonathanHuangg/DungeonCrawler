@@ -3,6 +3,7 @@ package com.example.dungencrawler.viewmodels;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.Sword;
 
 import java.util.Random;
 
@@ -59,6 +61,9 @@ public class Room2Activity extends AppCompatActivity {
     private float enemyAttackDamage;
     private float enemyMovementSpeed;
     private Random random = new Random();
+    private SwordView swordView;
+    private Sword sword;
+
 
 
     @Override
@@ -116,6 +121,9 @@ public class Room2Activity extends AppCompatActivity {
 
         player.setPlayerX((float) (widthOfScreen * 0.03));
         player.setPlayerY((float) (heightOfScreen * 0.03));
+        sword = new Sword(0, 0);
+        swordView = new SwordView(this, sword, R.drawable.sword);
+        swordView.setVisibility(View.INVISIBLE);
 
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
@@ -141,6 +149,7 @@ public class Room2Activity extends AppCompatActivity {
         gameLayout.addView(playerView, params);
         gameLayout.addView(enemy3View, params);
         gameLayout.addView(enemy4View, params);
+        gameLayout.addView(swordView, params);
 
         createBoard();
 
@@ -162,6 +171,12 @@ public class Room2Activity extends AppCompatActivity {
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy3View.updateEnemyPosition(enemy3.getEnemyX(), enemy3.getEnemyY());
                 enemy4View.updateEnemyPosition(enemy4.getEnemyX(), enemy4.getEnemyY());
+                if (playerEnemyCollideAttack(enemy3, player)) {
+                    gameLayout.removeView(enemy3View);
+                }
+                if (playerEnemyCollideAttack(enemy4, player)) {
+                    gameLayout.removeView(enemy4View);
+                }
 
                 obs.enemyUpdate(enemy3);
                 obs.enemyUpdate(enemy4);
@@ -236,9 +251,12 @@ public class Room2Activity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public boolean playerEnemyCollide(Enemy enemy, Player player) {
-        return Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
-                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100;
+    private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
+        if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
+                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -256,12 +274,23 @@ public class Room2Activity extends AppCompatActivity {
         case KeyEvent.KEYCODE_DPAD_DOWN:
             player.setEntityStrategy(new PlayerMovementDown());
             break;
+        case KeyEvent.KEYCODE_SPACE:
+            swordView.setX(player.getPlayerX() + 120);
+            swordView.setY(player.getPlayerY() + 50);
+            swordView.setVisibility(View.VISIBLE);
+            player.setAttackStatus(1);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    swordView.setVisibility(View.INVISIBLE);
+                    player.setAttackStatus(0);
+                }
+            }, 100);
         default:
             break;
         }
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
-        // checkCollisions();
         if (playerView.getPlayerPosition() > 2100) {
             navigateToEndScreen(username, score + additionalScore, character);
         }

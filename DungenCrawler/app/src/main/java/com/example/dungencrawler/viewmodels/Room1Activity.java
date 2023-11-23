@@ -58,7 +58,6 @@ public class Room1Activity extends AppCompatActivity {
     private float enemyMovementSpeed;
     private Random random = new Random();
     private SwordView swordView;
-    private Handler handler = new Handler();
     private Sword sword;
 
     @Override
