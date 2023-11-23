@@ -2,6 +2,7 @@ package com.example.dungencrawler.viewmodels;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -11,9 +12,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.dungencrawler.R;
 import com.example.dungencrawler.model.Difficulty;
 import com.example.dungencrawler.model.Enemy;
@@ -26,7 +25,7 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
-
+import com.example.dungencrawler.model.Sword;
 import java.util.Random;
 
 public class Room1Activity extends AppCompatActivity {
@@ -47,7 +46,7 @@ public class Room1Activity extends AppCompatActivity {
     private RelativeLayout gameLayout;
     private int character;
     private Player player;
-    private  PlayerView playerView;
+    private PlayerView playerView;
     private Enemy enemy1;
     private EnemyCreator enemy1Creator;
     private EnemyView enemy1View;
@@ -58,6 +57,9 @@ public class Room1Activity extends AppCompatActivity {
     private float enemyAttackDamage;
     private float enemyMovementSpeed;
     private Random random = new Random();
+    private SwordView swordView;
+    private Handler handler = new Handler();
+    private Sword sword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,9 +114,11 @@ public class Room1Activity extends AppCompatActivity {
         player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
         obs.setPlayer(player);
-
         player.setPlayerX((float) (widthOfScreen * 0.03));
         player.setPlayerY((float) (heightOfScreen * 0.03));
+        sword = new Sword(0, 0);
+        swordView = new SwordView(this, sword, R.drawable.sword);
+        swordView.setVisibility(View.INVISIBLE);
 
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
@@ -140,10 +144,10 @@ public class Room1Activity extends AppCompatActivity {
         gameLayout.addView(playerView, params);
         gameLayout.addView(enemy1View, params);
         gameLayout.addView(enemy2View, params);
+        gameLayout.addView(swordView, params);
 
         createBoard();
 
-        // tilemap.setSomeProperty(value);
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getString("name") != null) {
             username = extras.getString("name");
@@ -163,6 +167,12 @@ public class Room1Activity extends AppCompatActivity {
                 enemy2.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy1View.updateEnemyPosition(enemy1.getEnemyX(), enemy1.getEnemyY());
                 enemy2View.updateEnemyPosition(enemy2.getEnemyX(), enemy2.getEnemyY());
+                if (playerEnemyCollideAttack(enemy1, player)) {
+                    gameLayout.removeView(enemy1View);
+                }
+                if (playerEnemyCollideAttack(enemy2, player)) {
+                    gameLayout.removeView(enemy2View);
+                }
 
                 obs.enemyUpdate(enemy1);
                 obs.enemyUpdate(enemy2);
@@ -179,12 +189,8 @@ public class Room1Activity extends AppCompatActivity {
                 if (player.getHealth() > 0) {
                     navigateToEndScreen(username, score + 0, character);
                 }
-
-
             }
         }.start();
-
-
     }
 
     private void createBoard() {
@@ -242,11 +248,13 @@ public class Room1Activity extends AppCompatActivity {
         enemy.setEnemyDy((float) Math.sin(angle) * enemyMovementSpeed);
     }
 
-    public boolean playerEnemyCollide(Enemy enemy, Player player) {
-        return Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
-                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100;
+private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
+    if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
+            && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
+        return true;
     }
-
+    return false;
+}
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
@@ -262,16 +270,26 @@ public class Room1Activity extends AppCompatActivity {
         case KeyEvent.KEYCODE_DPAD_DOWN:
             player.setEntityStrategy(new PlayerMovementDown());
             break;
+        case KeyEvent.KEYCODE_SPACE:
+            swordView.setX(player.getPlayerX() + 120);
+            swordView.setY(player.getPlayerY() + 50);
+            swordView.setVisibility(View.VISIBLE);
+            player.setAttackStatus(1);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    swordView.setVisibility(View.INVISIBLE);
+                    player.setAttackStatus(0);
+                }
+            }, 100);
         default:
             break;
         }
         player.getEntityStrategy().execute(player, heightOfScreen, widthOfScreen);
         playerView.updatePlayerPosition(player.getPlayerX(), player.getPlayerY());
-        // checkCollisions();
         if (playerView.getPlayerPosition() > 2100) {
             navigateToEndScreen(username, score + additionalScore, character);
         }
-
         return true;
     }
 }

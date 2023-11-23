@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Player {
     //more to be added as game develops
+    private int attackStatus;
     private String name;
     private int health;
     private float x;
     private float y;
     private static Player player;
-    private Bitmap icon;
     private EntityStrategy entityStrategy;
     private List<Subscriber> subscribers = new ArrayList<>();
 
@@ -23,6 +23,7 @@ public class Player {
         setHealth(health);
         setPlayerX(x);
         setPlayerY(y);
+        setAttackStatus(0); // default to not attacking
     }
     public static Player getPlayer() {
         if (player == null) {
@@ -52,6 +53,9 @@ public class Player {
     public List<Subscriber> getSubscribers() {
         return subscribers;
     }
+    public int getAttackStatus() {
+        return attackStatus;
+    }
 
     //setters
     public void setEntityStrategy(EntityStrategy entityStrategy) {
@@ -60,6 +64,7 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+    public void setAttackStatus(int status) {this.attackStatus = status;}
     public void setHealth(int health) {
         if (health > 0) {
             this.health = health;
@@ -97,7 +102,6 @@ public class Player {
     public void executeEntityStrategy(Player player, int screenHeight, int screenWidth) {
         entityStrategy.execute(player, screenHeight, screenWidth);
     }
-
 
     //observer architecture
     public void subscribe(Subscriber subscriber) {
