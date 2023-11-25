@@ -27,7 +27,7 @@ public abstract class PowerUpDecorator implements PlayerInterface {
     }
 
     //Secret PowerUp that wins you the game. Will be 100
-    public boolean setPlayerWinResult(int result) {
+    public void setPlayerWinResult(int result) {
         decoratedPlayer.setPlayerWinResult(result);
     }
 
