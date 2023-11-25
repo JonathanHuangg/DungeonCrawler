@@ -135,6 +135,11 @@ public class Room1Activity extends AppCompatActivity {
         setRandomEnemyDirection(enemy2);
         enemy2View = new EnemyView(this, enemy2, R.drawable.enemy2);
 
+        //creating powerup objects here
+
+
+
+
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
