@@ -22,4 +22,9 @@ public interface PlayerInterface {
     void setPlayerY(float y);
     void setPlayerWinResult(int score);
 
+    // Other methods
+    void executeEntityStrategy(Player player, int screenHeight, int screenWidth);
+    void subscribe(Subscriber subscriber);
+    void unsubscribe(Subscriber subscriber);
+
 }
