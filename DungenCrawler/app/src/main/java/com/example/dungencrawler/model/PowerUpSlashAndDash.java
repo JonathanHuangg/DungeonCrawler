@@ -2,31 +2,59 @@ package com.example.dungencrawler.model;
 
 public class PowerUpSlashAndDash extends PowerUpDecorator {
     private static final float DASH_DISTANCE = 20.0f;
-    private static final int ATTACKING_STATUS = 1;
-    private boolean isDashing = false;
+    private static final int ATTACK = 1;
+    private static final int NOTATTACK = 0;
+    private float dashSpeed = 5.0f; // Units per update, adjust based on your game's frame rate
 
-    public PowerUpSlashAndDash(PlayerInterface decoratedPlayer) {
+    private float x; // manually put these in
+    private float y;
+
+    public PowerUpSlashAndDash(PlayerInterface decoratedPlayer, float x, float y) {
+
         super(decoratedPlayer);
+        this.x = x;
+        this.y = y;
     }
 
     @Override
     public void setPlayerX(float x) {
-        if (!isDashing) {
-            startDash(x);
-        }
+        // Set the player to attacking status
+        decoratedPlayer.setAttackStatus(ATTACK);
+
+        // Start dash
+        dash(x);
     }
 
-    private void startDash(float startX) {
-        isDashing = true;
-        decoratedPlayer.setAttackStatus(ATTACKING_STATUS);
+    public float getX() {
+        return this.x;
+    }
 
+    public float getY() {
+        return this.y;
+    }
+
+    private void dash(float startX) {
         float targetX = startX + DASH_DISTANCE;
-        // Assuming a simple linear movement for the dash
-        decoratedPlayer.setPlayerX(targetX);
+        new Thread(() -> {
+            float currentPosition = startX;
+            while (currentPosition < targetX) {
+                currentPosition += dashSpeed;
+                // Make sure we don't go past the target position
+                currentPosition = Math.min(currentPosition, targetX);
 
-        // You might need a mechanism to set the attack status back to normal
-        // after the dash is complete. This could be done with a timer or an update loop.
+                // move the player
+                decoratedPlayer.setPlayerX(currentPosition);
 
-        isDashing = false;
+                // Glide movement
+                try {
+                    Thread.sleep(50); // Adjust sleep duration for desired speed
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // Reset attack status here or trigger an event to do so
+            decoratedPlayer.setAttackStatus(NOTATTACK);
+        }).start();
     }
 }
