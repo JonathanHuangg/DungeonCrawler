@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.PowerUp;
 import com.example.dungencrawler.model.PowerUpHealth;
 import com.example.dungencrawler.model.PowerUpInstaWin;
 import com.example.dungencrawler.model.Sword;
@@ -152,8 +154,8 @@ public class Room3Activity extends AppCompatActivity {
 
         // Add Health PowerUp
 
-        float powerUpX = 500;
-        float powerUpY = 500;
+        float powerUpX = 100;
+        float powerUpY = 100;
         PowerUpHealth powerUpHealth = new PowerUpHealth(player, powerUpX, powerUpY);
 
         // Initialize the PowerUpView for Health
@@ -196,6 +198,12 @@ public class Room3Activity extends AppCompatActivity {
                 }
                 if (playerEnemyCollideAttack(enemy4, player)) {
                     gameLayout.removeView(enemy4View);
+                }
+
+                if (playerPowerUpCollide(player, powerUpHealth, 100, 100, 100, 100)) {
+                    // redo health
+                    Log.d("Room3Activity", "Collision Detected with Health PowerUp");
+                    powerUpHealth.setHealth(300);
                 }
 
                 obs.enemyUpdate(enemy2);
@@ -261,6 +269,23 @@ public class Room3Activity extends AppCompatActivity {
     private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
         if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
                 && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth, int playerHeight, int powerUpWidth, int powerUpHeight) {
+        // Calculate the center positions of the player and the power-up
+        float playerCenterX = player.getPlayerX() + playerWidth / 2.0f;
+        float playerCenterY = player.getPlayerY() + playerHeight / 2.0f;
+        float powerUpCenterX = powerUp.getX() + powerUpWidth / 2.0f;
+        float powerUpCenterY = powerUp.getY() + powerUpHeight / 2.0f;
+
+        // Define a threshold for collision, adjust as necessary
+        final int COLLISION_THRESHOLD = 25;
+
+        if (Math.abs(powerUpCenterY - playerCenterY) < COLLISION_THRESHOLD
+                && Math.abs(powerUpCenterX - playerCenterX) < COLLISION_THRESHOLD) {
             return true;
         }
         return false;
