@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -153,7 +154,7 @@ public class Room3Activity extends AppCompatActivity {
 
         // Add Health PowerUp
 
-        float powerUpX = 500;
+        float powerUpX = 100;
         float powerUpY = 100;
         PowerUpHealth powerUpHealth = new PowerUpHealth(player, powerUpX, powerUpY);
 
@@ -201,7 +202,7 @@ public class Room3Activity extends AppCompatActivity {
 
                 if (playerPowerUpCollide(player, powerUpHealth, 100, 100, 100, 100)) {
                     // redo health
-                    System.out.println("collide");
+                    Log.d("Room3Activity", "Collision Detected with Health PowerUp");
                     powerUpHealth.setHealth(300);
                 }
 
