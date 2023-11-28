@@ -66,9 +66,7 @@ public class Room1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room1_view); // Set the layout here
-
         Intent i = getIntent();
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         widthOfScreen = displayMetrics.widthPixels;
@@ -92,7 +90,6 @@ public class Room1Activity extends AppCompatActivity {
         }
 
         widthOfBlock = widthOfScreen / noOfBlocks;
-
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
@@ -110,7 +107,6 @@ public class Room1Activity extends AppCompatActivity {
         } else {
             charId = R.drawable.amongus3;
         }
-
         //Initialize game objects (player, enemies, etc)
         player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
@@ -120,13 +116,11 @@ public class Room1Activity extends AppCompatActivity {
         sword = new Sword(0, 0);
         swordView = new SwordView(this, sword, R.drawable.sword);
         swordView.setVisibility(View.INVISIBLE);
-
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
         int randY1 = random.nextInt(heightOfScreen);
         int randX2 = widthOfScreen / 6 + random.nextInt(widthOfScreen / 2);
         int randY2 = random.nextInt(heightOfScreen);
-
         //Add enemies
         enemy1Creator = new Enemy1Creator();
         enemy1 = enemy1Creator.createEnemy(randX1, randY1, enemyAttackDamage);
@@ -147,10 +141,7 @@ public class Room1Activity extends AppCompatActivity {
         gameLayout.addView(enemy1View, params);
         gameLayout.addView(enemy2View, params);
         gameLayout.addView(swordView, params);
-
-
         // Add SlashAndDashPowerUp
-
         float powerUpX = 100;
         float powerUpY = 100;
         PowerUpSlashAndDash powerUpSlash = new PowerUpSlashAndDash(player, powerUpX, powerUpY);
@@ -183,9 +174,7 @@ public class Room1Activity extends AppCompatActivity {
         countdownTimer.setY(heightOfScreen / 10);
 
         timer = new CountDownTimer(time * 1000, 10) {
-
             public void onTick(long millisUntilFinished) {
-
                 enemy1.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy2.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy1View.updateEnemyPosition(enemy1.getEnemyX(), enemy1.getEnemyY());
@@ -196,15 +185,14 @@ public class Room1Activity extends AppCompatActivity {
                 if (playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
                 }
-
                 if (playerPowerUpCollide(player, powerUpSlash, 100, 100, 100, 100)) {
                     // Start the dash if not already dashing
                     powerUpSlash.startDash();
+                    gameLayout.removeView(powerUpSlashView);
                 }
 
                 // Update the dash effect
                 powerUpSlash.updateDash();
-
 
                 obs.enemyUpdate(enemy1);
                 obs.enemyUpdate(enemy2);
@@ -280,15 +268,17 @@ public class Room1Activity extends AppCompatActivity {
         enemy.setEnemyDy((float) Math.sin(angle) * enemyMovementSpeed);
     }
 
-private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
-    if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
-            && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
-        return true;
+    private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
+        if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
+            && Math.abs(enemy.getEnemyX() - player.getPlayerX())
+                < 100 && player.getAttackStatus() == 1) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
-    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth, int playerHeight, int powerUpWidth, int powerUpHeight) {
+    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth,
+                                         int playerHeight, int powerUpWidth, int powerUpHeight) {
         // Calculate the center positions of the player and the power-up
         float playerCenterX = player.getPlayerX() + playerWidth / 2.0f;
         float playerCenterY = player.getPlayerY() + playerHeight / 2.0f;
@@ -296,10 +286,10 @@ private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
         float powerUpCenterY = powerUp.getY() + powerUpHeight / 2.0f;
 
         // Define a threshold for collision, adjust as necessary
-        final int COLLISION_THRESHOLD = 25;
+        final int collisionThreshold = 25;
 
-        if (Math.abs(powerUpCenterY - playerCenterY) < COLLISION_THRESHOLD
-                && Math.abs(powerUpCenterX - playerCenterX) < COLLISION_THRESHOLD) {
+        if (Math.abs(powerUpCenterY - playerCenterY) < collisionThreshold
+                && Math.abs(powerUpCenterX - playerCenterX) < collisionThreshold) {
             return true;
         }
         return false;
@@ -331,6 +321,7 @@ private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
                     player.setAttackStatus(0);
                 }
             }, 100);
+            break;
         default:
             break;
         }

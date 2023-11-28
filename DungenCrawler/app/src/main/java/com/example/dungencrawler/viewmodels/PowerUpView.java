@@ -19,7 +19,8 @@ public class PowerUpView extends View {
     private Bitmap powerUpInstaBitmap;
     private Bitmap powerUpHealthBitmap;
 
-    public PowerUpView(Context context, PowerUpSlashAndDash powerUpSlash, int powerUpSlashResourceId,
+    public PowerUpView(Context context, PowerUpSlashAndDash powerUpSlash,
+                       int powerUpSlashResourceId,
                        PowerUpInstaWin powerUpInsta, int powerUpInstaResourceId,
                        PowerUpHealth powerUpHealth, int powerUpHealthResourceId) {
         super(context);
@@ -28,13 +29,16 @@ public class PowerUpView extends View {
         this.powerUpHealth = powerUpHealth;
 
         if (powerUpSlash != null) {
-            this.powerUpSlashBitmap = BitmapFactory.decodeResource(getResources(), powerUpSlashResourceId);
+            this.powerUpSlashBitmap = BitmapFactory.decodeResource(getResources(),
+                    powerUpSlashResourceId);
         }
         if (powerUpInsta != null) {
-            this.powerUpInstaBitmap = BitmapFactory.decodeResource(getResources(), powerUpInstaResourceId);
+            this.powerUpInstaBitmap = BitmapFactory.decodeResource(getResources(),
+                    powerUpInstaResourceId);
         }
         if (powerUpHealth != null) {
-            this.powerUpHealthBitmap = BitmapFactory.decodeResource(getResources(), powerUpHealthResourceId);
+            this.powerUpHealthBitmap = BitmapFactory.decodeResource(getResources(),
+                    powerUpHealthResourceId);
         }
 
         resizeBitmaps();
@@ -50,7 +54,8 @@ public class PowerUpView extends View {
             powerUpInstaBitmap = Bitmap.createScaledBitmap(powerUpInstaBitmap, width, height, true);
         }
         if (powerUpHealthBitmap != null) {
-            powerUpHealthBitmap = Bitmap.createScaledBitmap(powerUpHealthBitmap, width, height, true);
+            powerUpHealthBitmap =
+                    Bitmap.createScaledBitmap(powerUpHealthBitmap, width, height, true);
         }
     }
 
@@ -64,7 +69,8 @@ public class PowerUpView extends View {
             canvas.drawBitmap(powerUpInstaBitmap, powerUpInsta.getX(), powerUpInsta.getY(), null);
         }
         if (powerUpHealth != null && powerUpHealthBitmap != null) {
-            canvas.drawBitmap(powerUpHealthBitmap, powerUpHealth.getX(), powerUpHealth.getY(), null);
+            canvas.drawBitmap(powerUpHealthBitmap,
+                    powerUpHealth.getX(), powerUpHealth.getY(), null);
         }
     }
 }
