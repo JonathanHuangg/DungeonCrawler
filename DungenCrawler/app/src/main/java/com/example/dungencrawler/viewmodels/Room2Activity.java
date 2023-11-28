@@ -185,11 +185,15 @@ public class Room2Activity extends AppCompatActivity {
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy3View.updateEnemyPosition(enemy3.getEnemyX(), enemy3.getEnemyY());
                 enemy4View.updateEnemyPosition(enemy4.getEnemyX(), enemy4.getEnemyY());
-                if (playerEnemyCollideAttack(enemy3, player)) {
+                if (!enemy3.isDead() && playerEnemyCollideAttack(enemy3, player)) {
                     gameLayout.removeView(enemy3View);
+                    enemy3.kill();
+                    score+=100;
                 }
-                if (playerEnemyCollideAttack(enemy4, player)) {
+                if (!enemy4.isDead() && playerEnemyCollideAttack(enemy4, player)) {
                     gameLayout.removeView(enemy4View);
+                    enemy4.kill();
+                    score+=100;
                 }
 
                 if (playerPowerUpCollide(player, powerUpInsta, 100, 100, 100, 100)) {
@@ -213,7 +217,7 @@ public class Room2Activity extends AppCompatActivity {
 
             public void onFinish() {
                 if (player.getHealth() > 0) {
-                    navigateToEndScreen(username, score + 0, character);
+                    endGame(username, 0);
                 }
             }
 

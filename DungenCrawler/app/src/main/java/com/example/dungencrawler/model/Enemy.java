@@ -7,6 +7,8 @@ public class Enemy {
     private float dy;
     private float attackDamage;
     private float speed;
+
+    private boolean dead;
     public Enemy() {
         this(0, 0, 30);
     }
@@ -18,6 +20,7 @@ public class Enemy {
         float angle = (float) (Math.random() * 2 * Math.PI);
         dx = (float) Math.cos(angle) * speed;
         dy = (float) Math.sin(angle) * speed;
+        dead = false;
     }
 
     public void enemyMove(Difficulty difficultyLevel, float screenWidth, float screenHeight) { };
@@ -49,5 +52,12 @@ public class Enemy {
         } else {
             this.attackDamage = 1;
         }
+    }
+    public void kill() {
+        dead = true;
+    }
+
+    public boolean isDead() {
+        return dead;
     }
 }

@@ -179,11 +179,15 @@ public class Room1Activity extends AppCompatActivity {
                 enemy2.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy1View.updateEnemyPosition(enemy1.getEnemyX(), enemy1.getEnemyY());
                 enemy2View.updateEnemyPosition(enemy2.getEnemyX(), enemy2.getEnemyY());
-                if (playerEnemyCollideAttack(enemy1, player)) {
+                if (!enemy1.isDead() && playerEnemyCollideAttack(enemy1, player)) {
                     gameLayout.removeView(enemy1View);
+                    enemy1.kill();
+                    score+=100;
                 }
-                if (playerEnemyCollideAttack(enemy2, player)) {
+                if (!enemy2.isDead() && playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
+                    enemy2.kill();
+                    score+=100;
                 }
                 if (playerPowerUpCollide(player, powerUpSlash, 100, 100, 100, 100)) {
                     // Start the dash if not already dashing
@@ -207,7 +211,7 @@ public class Room1Activity extends AppCompatActivity {
             }
             public void onFinish() {
                 if (player.getHealth() > 0) {
-                    navigateToEndScreen(username, score + 0, character);
+                    endGame(username, 0);
                 }
             }
         }.start();
@@ -259,7 +263,6 @@ public class Room1Activity extends AppCompatActivity {
         i.putExtra("score", score);
         i.putExtra("text", "you lose!");
         i.putExtra("difficulty", difficulty);
-        System.out.println("This triggered! Game lost.");
         startActivity(i);
     }
     private void setRandomEnemyDirection(Enemy enemy) {

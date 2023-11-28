@@ -184,11 +184,15 @@ public class Room3Activity extends AppCompatActivity {
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy2View.updateEnemyPosition(enemy2.getEnemyX(), enemy2.getEnemyY());
                 enemy4View.updateEnemyPosition(enemy4.getEnemyX(), enemy4.getEnemyY());
-                if (playerEnemyCollideAttack(enemy2, player)) {
+                if (!enemy2.isDead() && playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
+                    enemy2.kill();
+                    score+=100;
                 }
-                if (playerEnemyCollideAttack(enemy4, player)) {
+                if (!enemy4.isDead() && playerEnemyCollideAttack(enemy4, player)) {
                     gameLayout.removeView(enemy4View);
+                    enemy4.kill();
+                    score+=100;
                 }
 
                 if (playerPowerUpCollide(player, powerUpHealth, 100, 100, 100, 100)) {
@@ -204,14 +208,15 @@ public class Room3Activity extends AppCompatActivity {
                     endGame(username, 0);
                 }
                 int secondsLeft = (int) millisUntilFinished / 1000;
-                countdownTimer.setText("Score: " + secondsLeft + "\nPlayer Location:"
+                additionalScore = secondsLeft;
+                countdownTimer.setText("Time left:" + secondsLeft + "\nPlayer Location:"
                         + playerView.getPlayerPosition() + "\nPlayer Health:"
                         + player.getHealth());
-                additionalScore = secondsLeft;
+
             }
             private String text = "you lose!";
             public void onFinish() {
-                navigateToEndScreen(username, score + 0, text);
+                navigateToEndScreen(username, score + additionalScore, "you win!");
             }
 
         }.start();
