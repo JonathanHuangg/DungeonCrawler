@@ -29,7 +29,6 @@ import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
 import com.example.dungencrawler.model.PowerUp;
 import com.example.dungencrawler.model.PowerUpInstaWin;
-import com.example.dungencrawler.model.PowerUpSlashAndDash;
 import com.example.dungencrawler.model.Sword;
 
 import java.util.Random;
@@ -73,9 +72,7 @@ public class Room2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room1_view); // Set the layout here
-
         Intent i = getIntent();
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         widthOfScreen = displayMetrics.widthPixels;
@@ -83,7 +80,6 @@ public class Room2Activity extends AppCompatActivity {
         gameLayout = findViewById(R.id.gameLayOut);
         difficulty = (Difficulty) i.getSerializableExtra("difficulty");
         Observer obs = Observer.getObserver();
-
 
         // set enemy attack value and movement speed based on difficulty
         if (difficulty == Difficulty.easy) {
@@ -97,9 +93,7 @@ public class Room2Activity extends AppCompatActivity {
             enemyAttackDamage = 5;
             enemyMovementSpeed = 50;
         }
-
         widthOfBlock = widthOfScreen / noOfBlocks;
-
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
@@ -154,17 +148,15 @@ public class Room2Activity extends AppCompatActivity {
         gameLayout.addView(enemy4View, params);
         gameLayout.addView(swordView, params);
 
-
         // Add InstaWin PowerUp
-
         float powerUpX = 100;
         float powerUpY = 100;
-        PowerUpInstaWin PowerUpInsta = new PowerUpInstaWin(player, powerUpX, powerUpY);
+        PowerUpInstaWin powerUpInsta = new PowerUpInstaWin(player, powerUpX, powerUpY);
 
         // Initialize the PowerUpView for PowerUpInstaWin
         PowerUpView instaWin = new PowerUpView(this,
                 null, 0,
-                PowerUpInsta, R.drawable.powerupinstawin,  // Other powerups don't exist here
+                powerUpInsta, R.drawable.powerupinstawin,  // Other powerups don't exist here
                 null, 0);
 
         // Add the PowerUpView to your game layout
@@ -189,7 +181,6 @@ public class Room2Activity extends AppCompatActivity {
         countdownTimer.setY(heightOfScreen / 10);
         timer = new CountDownTimer(time * 1000, 10) {
             public void onTick(long millisUntilFinished) {
-
                 enemy3.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy3View.updateEnemyPosition(enemy3.getEnemyX(), enemy3.getEnemyY());
@@ -201,10 +192,10 @@ public class Room2Activity extends AppCompatActivity {
                     gameLayout.removeView(enemy4View);
                 }
 
-
-                if (playerPowerUpCollide(player, PowerUpInsta, 100, 100, 100, 100)) {
+                if (playerPowerUpCollide(player, powerUpInsta, 100, 100, 100, 100)) {
                     // set playerWinResult
-                    PowerUpInsta.setPlayerWinResult(999);
+                    powerUpInsta.setPlayerWinResult(999);
+                    gameLayout.removeView(instaWin);
                     onFinish();
                 }
 
@@ -283,12 +274,14 @@ public class Room2Activity extends AppCompatActivity {
 
     private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
         if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
-                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
+                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100
+                && player.getAttackStatus() == 1) {
             return true;
         }
         return false;
     }
-    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth, int playerHeight, int powerUpWidth, int powerUpHeight) {
+    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth,
+                                         int playerHeight, int powerUpWidth, int powerUpHeight) {
         // Calculate the center positions of the player and the power-up
         float playerCenterX = player.getPlayerX() + playerWidth / 2.0f;
         float playerCenterY = player.getPlayerY() + playerHeight / 2.0f;
@@ -296,10 +289,10 @@ public class Room2Activity extends AppCompatActivity {
         float powerUpCenterY = powerUp.getY() + powerUpHeight / 2.0f;
 
         // Define a threshold for collision, adjust as necessary
-        final int COLLISION_THRESHOLD = 25;
+        final int collisionThreshold = 25;
 
-        if (Math.abs(powerUpCenterY - playerCenterY) < COLLISION_THRESHOLD
-                && Math.abs(powerUpCenterX - playerCenterX) < COLLISION_THRESHOLD) {
+        if (Math.abs(powerUpCenterY - playerCenterY) < collisionThreshold
+                && Math.abs(powerUpCenterX - playerCenterX) < collisionThreshold) {
             return true;
         }
         return false;
@@ -331,6 +324,7 @@ public class Room2Activity extends AppCompatActivity {
                     player.setAttackStatus(0);
                 }
             }, 100);
+            break;
         default:
             break;
         }

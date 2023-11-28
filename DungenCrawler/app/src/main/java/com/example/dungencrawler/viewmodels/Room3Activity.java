@@ -30,7 +30,6 @@ import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
 import com.example.dungencrawler.model.PowerUp;
 import com.example.dungencrawler.model.PowerUpHealth;
-import com.example.dungencrawler.model.PowerUpInstaWin;
 import com.example.dungencrawler.model.Sword;
 
 import java.util.Random;
@@ -71,9 +70,7 @@ public class Room3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room1_view); // Set the layout here
-
         Intent i = getIntent();
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         widthOfScreen = displayMetrics.widthPixels;
@@ -95,9 +92,7 @@ public class Room3Activity extends AppCompatActivity {
             enemyAttackDamage = 5;
             enemyMovementSpeed = 50;
         }
-
         widthOfBlock = widthOfScreen / noOfBlocks;
-
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
@@ -151,9 +146,7 @@ public class Room3Activity extends AppCompatActivity {
         gameLayout.addView(enemy2View, params);
         gameLayout.addView(enemy4View, params);
         gameLayout.addView(swordView, params);
-
         // Add Health PowerUp
-
         float powerUpX = 100;
         float powerUpY = 100;
         PowerUpHealth powerUpHealth = new PowerUpHealth(player, powerUpX, powerUpY);
@@ -186,9 +179,7 @@ public class Room3Activity extends AppCompatActivity {
         countdownTimer.setX(widthOfScreen / 2);
         countdownTimer.setY(heightOfScreen / 10);
         timer = new CountDownTimer(time * 1000, 10) {
-
             public void onTick(long millisUntilFinished) {
-
                 enemy2.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy4.enemyMove(difficulty, widthOfScreen, heightOfScreen);
                 enemy2View.updateEnemyPosition(enemy2.getEnemyX(), enemy2.getEnemyY());
@@ -204,6 +195,7 @@ public class Room3Activity extends AppCompatActivity {
                     // redo health
                     Log.d("Room3Activity", "Collision Detected with Health PowerUp");
                     powerUpHealth.setHealth(300);
+                    gameLayout.removeView(powerUpHealthView);
                 }
 
                 obs.enemyUpdate(enemy2);
@@ -268,13 +260,15 @@ public class Room3Activity extends AppCompatActivity {
 
     private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
         if (Math.abs(enemy.getEnemyY() - player.getPlayerY()) < 100
-                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100 && player.getAttackStatus() == 1) {
+                && Math.abs(enemy.getEnemyX() - player.getPlayerX()) < 100
+                && player.getAttackStatus() == 1) {
             return true;
         }
         return false;
     }
 
-    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth, int playerHeight, int powerUpWidth, int powerUpHeight) {
+    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth,
+                                         int playerHeight, int powerUpWidth, int powerUpHeight) {
         // Calculate the center positions of the player and the power-up
         float playerCenterX = player.getPlayerX() + playerWidth / 2.0f;
         float playerCenterY = player.getPlayerY() + playerHeight / 2.0f;
@@ -282,10 +276,10 @@ public class Room3Activity extends AppCompatActivity {
         float powerUpCenterY = powerUp.getY() + powerUpHeight / 2.0f;
 
         // Define a threshold for collision, adjust as necessary
-        final int COLLISION_THRESHOLD = 25;
+        final int collisionThreshold = 25;
 
-        if (Math.abs(powerUpCenterY - playerCenterY) < COLLISION_THRESHOLD
-                && Math.abs(powerUpCenterX - playerCenterX) < COLLISION_THRESHOLD) {
+        if (Math.abs(powerUpCenterY - playerCenterY) < collisionThreshold
+                && Math.abs(powerUpCenterX - playerCenterX) < collisionThreshold) {
             return true;
         }
         return false;
@@ -318,6 +312,7 @@ public class Room3Activity extends AppCompatActivity {
                     player.setAttackStatus(0);
                 }
             }, 100);
+            break;
         default:
             break;
         }

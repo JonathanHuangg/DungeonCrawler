@@ -7,8 +7,16 @@ public class Sword {
         this.y = y;
     }
 
-    public void setSwordX(float x) {this.x = x;}
-    public void setSwordY(float y) {this.y = y;}
-    public float getSwordX() {return x;}
-    public float getSwordY() {return y;}
+    public void setSwordX(float x) {
+        this.x = x;
+    }
+    public void setSwordY(float y) {
+        this.y = y;
+    }
+    public float getSwordX() {
+        return x;
+    }
+    public float getSwordY() {
+        return y;
+    }
 }

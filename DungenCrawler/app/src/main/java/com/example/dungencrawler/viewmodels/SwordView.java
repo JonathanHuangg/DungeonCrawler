@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.view.View;
 
 import com.example.dungencrawler.R;
-import com.example.dungencrawler.model.Player;
 import com.example.dungencrawler.model.Sword;
 
 public class SwordView extends View {
