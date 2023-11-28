@@ -1,206 +1,218 @@
 [
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_netheracktexture.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/netheracktexture.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_room1_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_room1_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus3.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus3.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_enemy3.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/enemy3.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_game_end_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_game_end_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus2attack.PNG.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus2attack.PNG"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_welcome_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_welcome_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_room1_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_room1_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/xml_backup_rules.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_cobblestonetexture.jpg.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/cobblestonetexture.jpg"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_lose_icon.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/lose_icon.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_dungenintro.jpg.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/dungenintro.jpg"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_enemy3.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/enemy3.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_custom_radio_outline.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/custom_radio_outline.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus1.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus1.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_enemy4.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/enemy4.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_game_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_game_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_dc1.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/dc1.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_dc1.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/dc1.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/ic_launcher_foreground.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus1attack.PNG.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus1attack.PNG"
+        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_poweruphealth.png.flat",
+        "source": "com.example.dungencrawler.app-main-30:/drawable/poweruphealth.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_blood.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/blood.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_dc2.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/dc2.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_room2_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_room2_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus2.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus2.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_main_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_main_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_grasstexture.jpeg.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/grasstexture.jpeg"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_room3_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_room3_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_cobblestonetexture.jpg.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/cobblestonetexture.jpg"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_goldtexture.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/goldtexture.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_room3_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_room3_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/xml_backup_rules.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/xml/backup_rules.xml"
+        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_powerupinstawin.png.flat",
+        "source": "com.example.dungencrawler.app-main-30:/drawable/powerupinstawin.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_dc2.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/dc2.png"
+        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_powerupslashdash.png.flat",
+        "source": "com.example.dungencrawler.app-main-30:/drawable/powerupslashdash.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_custom_radio_outline.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/custom_radio_outline.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus2.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus2.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_game_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_game_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus3attack.PNG.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus3attack.PNG"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_win_icon.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/win_icon.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_sword.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/sword.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_blood.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/blood.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus3attack.PNG.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus3attack.PNG"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_goldtexture.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/goldtexture.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_enemy1.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/enemy1.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_enemy1.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/enemy1.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_lavatexture.jpeg.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/lavatexture.jpeg"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_lose_icon.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/lose_icon.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_dc3.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/dc3.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_amongus1.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/amongus1.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_netheracktexture.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/netheracktexture.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus2attack.PNG.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus2attack.PNG"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_lose_background.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/lose_background.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_white_outline.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/white_outline.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_win_background.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/win_background.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_sword.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/sword.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_welcome_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_welcome_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_game_end_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_game_end_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_leaftexture.jpeg.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/leaftexture.jpeg"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/layout_activity_main_view.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/layout/activity_main_view.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/layout_activity_room2_view.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/layout/activity_room2_view.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_white_outline.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/white_outline.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_dc3.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/dc3.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_enemy2.png.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/enemy2.png"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_enemy4.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/enemy4.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/xml/data_extraction_rules.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_dungenintro.jpg.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/dungenintro.jpg"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus3.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus3.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_lavatexture.jpeg.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/lavatexture.jpeg"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/ic_launcher_background.xml"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_win_icon.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/win_icon.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.dungencrawler.app-main-30:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_win_background.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/win_background.png"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_leaftexture.jpeg.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/leaftexture.jpeg"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.dungencrawler.app-merged_res-28:/drawable_grasstexture.jpeg.flat",
-        "source": "com.example.dungencrawler.app-main-30:/drawable/grasstexture.jpeg"
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_amongus1attack.PNG.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/amongus1attack.PNG"
+    },
+    {
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_enemy2.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/enemy2.png"
+    },
+    {
+        "merged": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-merged_res-28:/drawable_lose_background.png.flat",
+        "source": "/Users/jonathan/.gradle/daemon/8.0/com.example.dungencrawler.app-main-30:/drawable/lose_background.png"
     }
 ]

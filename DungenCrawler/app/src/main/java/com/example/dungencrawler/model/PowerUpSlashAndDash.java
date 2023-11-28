@@ -1,10 +1,13 @@
 package com.example.dungencrawler.model;
 
-public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp{
-    private static final float DASH_DISTANCE = 20.0f;
+public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp {
+    private static final float DASH_DISTANCE = 800.0f;
     private static final int ATTACK = 1;
     private static final int NOTATTACK = 0;
-    private float dashSpeed = 5.0f; // Units per update, adjust based on your game's frame rate
+
+    private boolean isDashing = false;
+    private float dashSpeed = 30.0f; // Units per update, adjust based on your game's frame rate
+    private float targetX;
 
     private float x; // manually put these in
     private float y;
@@ -16,15 +19,6 @@ public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp{
         this.y = y;
     }
 
-    @Override
-    public void setPlayerX(float x) {
-        // Set the player to attacking status
-        decoratedPlayer.setAttackStatus(ATTACK);
-
-        // Start dash
-        dash(x);
-    }
-
     public float getX() {
         return this.x;
     }
@@ -33,28 +27,28 @@ public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp{
         return this.y;
     }
 
-    private void dash(float startX) {
-        float targetX = startX + DASH_DISTANCE;
-        new Thread(() -> {
-            float currentPosition = startX;
-            while (currentPosition < targetX) {
+    // Call this method to start the dash
+    public void startDash() {
+        if (!isDashing) {
+            isDashing = true;
+            targetX = decoratedPlayer.getPlayerX() + DASH_DISTANCE;
+            decoratedPlayer.setAttackStatus(ATTACK);
+        }
+    }
+
+    // Call this method from your onTick to update the dash
+    public void updateDash() {
+        if (isDashing) {
+            float currentPosition = decoratedPlayer.getPlayerX();
+            if (currentPosition < targetX) {
                 currentPosition += dashSpeed;
-                // Make sure we don't go past the target position
                 currentPosition = Math.min(currentPosition, targetX);
-
-                // move the player
                 decoratedPlayer.setPlayerX(currentPosition);
-
-                // Glide movement
-                try {
-                    Thread.sleep(50); // Adjust sleep duration for desired speed
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            } else {
+                // End the dash
+                isDashing = false;
+                decoratedPlayer.setAttackStatus(NOTATTACK);
             }
-
-            // Reset attack status here or trigger an event to do so
-            decoratedPlayer.setAttackStatus(NOTATTACK);
-        }).start();
+        }
     }
 }

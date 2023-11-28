@@ -25,6 +25,8 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.PowerUp;
+import com.example.dungencrawler.model.PowerUpSlashAndDash;
 import com.example.dungencrawler.model.Sword;
 import java.util.Random;
 
@@ -125,6 +127,7 @@ public class Room1Activity extends AppCompatActivity {
         int randX2 = widthOfScreen / 6 + random.nextInt(widthOfScreen / 2);
         int randY2 = random.nextInt(heightOfScreen);
 
+        //Add enemies
         enemy1Creator = new Enemy1Creator();
         enemy1 = enemy1Creator.createEnemy(randX1, randY1, enemyAttackDamage);
         setRandomEnemyDirection(enemy1);
@@ -144,6 +147,27 @@ public class Room1Activity extends AppCompatActivity {
         gameLayout.addView(enemy1View, params);
         gameLayout.addView(enemy2View, params);
         gameLayout.addView(swordView, params);
+
+
+        // Add SlashAndDashPowerUp
+
+        float powerUpX = 100;
+        float powerUpY = 100;
+        PowerUpSlashAndDash powerUpSlash = new PowerUpSlashAndDash(player, powerUpX, powerUpY);
+
+        // Initialize the PowerUpView for PowerUpSlashAndDash
+        PowerUpView powerUpSlashView = new PowerUpView(this,
+                powerUpSlash, R.drawable.powerupslashdash,
+                null, 0,  // Other powerups don't exist here
+                null, 0);
+
+        // Add the PowerUpView to your game layout
+        RelativeLayout.LayoutParams powerUpParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        powerUpParams.leftMargin = (int) powerUpX;
+        powerUpParams.topMargin = (int) powerUpY;
+        gameLayout.addView(powerUpSlashView, powerUpParams);
 
         createBoard();
 
@@ -172,6 +196,15 @@ public class Room1Activity extends AppCompatActivity {
                 if (playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
                 }
+
+                if (playerPowerUpCollide(player, powerUpSlash, 100, 100, 100, 100)) {
+                    // Start the dash if not already dashing
+                    powerUpSlash.startDash();
+                }
+
+                // Update the dash effect
+                powerUpSlash.updateDash();
+
 
                 obs.enemyUpdate(enemy1);
                 obs.enemyUpdate(enemy2);
@@ -254,6 +287,23 @@ private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
     }
     return false;
 }
+
+    private boolean playerPowerUpCollide(Player player, PowerUp powerUp, int playerWidth, int playerHeight, int powerUpWidth, int powerUpHeight) {
+        // Calculate the center positions of the player and the power-up
+        float playerCenterX = player.getPlayerX() + playerWidth / 2.0f;
+        float playerCenterY = player.getPlayerY() + playerHeight / 2.0f;
+        float powerUpCenterX = powerUp.getX() + powerUpWidth / 2.0f;
+        float powerUpCenterY = powerUp.getY() + powerUpHeight / 2.0f;
+
+        // Define a threshold for collision, adjust as necessary
+        final int COLLISION_THRESHOLD = 25;
+
+        if (Math.abs(powerUpCenterY - playerCenterY) < COLLISION_THRESHOLD
+                && Math.abs(powerUpCenterX - playerCenterX) < COLLISION_THRESHOLD) {
+            return true;
+        }
+        return false;
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {

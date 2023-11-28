@@ -19,7 +19,6 @@ public class PowerUpView extends View {
     private Bitmap powerUpInstaBitmap;
     private Bitmap powerUpHealthBitmap;
 
-
     public PowerUpView(Context context, PowerUpSlashAndDash powerUpSlash, int powerUpSlashResourceId,
                        PowerUpInstaWin powerUpInsta, int powerUpInstaResourceId,
                        PowerUpHealth powerUpHealth, int powerUpHealthResourceId) {
@@ -28,40 +27,44 @@ public class PowerUpView extends View {
         this.powerUpInsta = powerUpInsta;
         this.powerUpHealth = powerUpHealth;
 
-        this.powerUpSlashBitmap = BitmapFactory.decodeResource(getResources(), powerUpSlashResourceId);
-        this.powerUpInstaBitmap = BitmapFactory.decodeResource(getResources(), powerUpInstaResourceId);
-        this.powerUpHealthBitmap = BitmapFactory.decodeResource(getResources(), powerUpHealthResourceId);
+        if (powerUpSlash != null) {
+            this.powerUpSlashBitmap = BitmapFactory.decodeResource(getResources(), powerUpSlashResourceId);
+        }
+        if (powerUpInsta != null) {
+            this.powerUpInstaBitmap = BitmapFactory.decodeResource(getResources(), powerUpInstaResourceId);
+        }
+        if (powerUpHealth != null) {
+            this.powerUpHealthBitmap = BitmapFactory.decodeResource(getResources(), powerUpHealthResourceId);
+        }
 
+        resizeBitmaps();
+    }
+
+    private void resizeBitmaps() {
         int width = 100;
         int height = 100;
-        this.powerUpSlashBitmap = Bitmap.createScaledBitmap(powerUpSlashBitmap, width, height, true);
-        this.powerUpInstaBitmap = Bitmap.createScaledBitmap(powerUpInstaBitmap, width, height, true);
-        this.powerUpHealthBitmap = Bitmap.createScaledBitmap(powerUpHealthBitmap, width, height, true);
+        if (powerUpSlashBitmap != null) {
+            powerUpSlashBitmap = Bitmap.createScaledBitmap(powerUpSlashBitmap, width, height, true);
+        }
+        if (powerUpInstaBitmap != null) {
+            powerUpInstaBitmap = Bitmap.createScaledBitmap(powerUpInstaBitmap, width, height, true);
+        }
+        if (powerUpHealthBitmap != null) {
+            powerUpHealthBitmap = Bitmap.createScaledBitmap(powerUpHealthBitmap, width, height, true);
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawPowerUpSlash(canvas, powerUpSlash, powerUpSlashBitmap);
-        drawPowerUpInsta(canvas, powerUpInsta, powerUpInstaBitmap);
-        drawPowerUpHealth(canvas, powerUpHealth, powerUpHealthBitmap);
-    }
-
-    private void drawPowerUpHealth(Canvas canvas, PowerUpHealth powerUp, Bitmap bitmap) {
-        if (powerUp != null && bitmap != null) {
-            canvas.drawBitmap(bitmap, powerUp.getX(), powerUp.getY(), null);
+        if (powerUpSlash != null && powerUpSlashBitmap != null) {
+            canvas.drawBitmap(powerUpSlashBitmap, powerUpSlash.getX(), powerUpSlash.getY(), null);
         }
-    }
-
-    private void drawPowerUpSlash(Canvas canvas, PowerUpSlashAndDash powerUp, Bitmap bitmap) {
-        if (powerUp != null && bitmap != null) {
-            canvas.drawBitmap(bitmap, powerUp.getX(), powerUp.getY(), null);
+        if (powerUpInsta != null && powerUpInstaBitmap != null) {
+            canvas.drawBitmap(powerUpInstaBitmap, powerUpInsta.getX(), powerUpInsta.getY(), null);
         }
-    }
-
-    private void drawPowerUpInsta(Canvas canvas, PowerUpInstaWin powerUp, Bitmap bitmap) {
-        if (powerUp != null && bitmap != null) {
-            canvas.drawBitmap(bitmap, powerUp.getX(), powerUp.getY(), null);
+        if (powerUpHealth != null && powerUpHealthBitmap != null) {
+            canvas.drawBitmap(powerUpHealthBitmap, powerUpHealth.getX(), powerUpHealth.getY(), null);
         }
     }
 }
