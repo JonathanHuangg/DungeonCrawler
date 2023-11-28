@@ -28,6 +28,9 @@ drawable leaftexture
 drawable lose_background
 drawable lose_icon
 drawable netheracktexture
+drawable poweruphealth
+drawable powerupinstawin
+drawable powerupslashdash
 drawable sword
 drawable white_outline
 drawable win_background
