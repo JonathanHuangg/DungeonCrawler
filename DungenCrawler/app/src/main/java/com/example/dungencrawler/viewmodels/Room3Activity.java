@@ -27,6 +27,8 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.PowerUpHealth;
+import com.example.dungencrawler.model.PowerUpInstaWin;
 import com.example.dungencrawler.model.Sword;
 
 import java.util.Random;
@@ -147,6 +149,26 @@ public class Room3Activity extends AppCompatActivity {
         gameLayout.addView(enemy2View, params);
         gameLayout.addView(enemy4View, params);
         gameLayout.addView(swordView, params);
+
+        // Add Health PowerUp
+
+        float powerUpX = 500;
+        float powerUpY = 500;
+        PowerUpHealth powerUpHealth = new PowerUpHealth(player, powerUpX, powerUpY);
+
+        // Initialize the PowerUpView for Health
+        PowerUpView powerUpHealthView = new PowerUpView(this,
+                null, 0,
+                null, 0,  // Other powerups don't exist here
+                powerUpHealth, R.drawable.poweruphealth);
+
+        // Add the PowerUpView to your game layout
+        RelativeLayout.LayoutParams powerUpParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        powerUpParams.leftMargin = (int) powerUpX;
+        powerUpParams.topMargin = (int) powerUpY;
+        gameLayout.addView(powerUpHealthView, powerUpParams);
 
         createBoard();
 

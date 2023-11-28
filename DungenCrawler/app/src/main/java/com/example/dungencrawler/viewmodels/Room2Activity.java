@@ -27,6 +27,8 @@ import com.example.dungencrawler.model.PlayerMovementDown;
 import com.example.dungencrawler.model.PlayerMovementLeft;
 import com.example.dungencrawler.model.PlayerMovementRight;
 import com.example.dungencrawler.model.PlayerMovementUp;
+import com.example.dungencrawler.model.PowerUpInstaWin;
+import com.example.dungencrawler.model.PowerUpSlashAndDash;
 import com.example.dungencrawler.model.Sword;
 
 import java.util.Random;
@@ -151,6 +153,26 @@ public class Room2Activity extends AppCompatActivity {
         gameLayout.addView(enemy4View, params);
         gameLayout.addView(swordView, params);
 
+
+        // Add InstaWin PowerUp
+
+        float powerUpX = 0;
+        float powerUpY = heightOfScreen - 100;
+        PowerUpInstaWin PowerUpInsta = new PowerUpInstaWin(player, powerUpX, powerUpY);
+
+        // Initialize the PowerUpView for PowerUpInstaWin
+        PowerUpView instaWin = new PowerUpView(this,
+                null, 0,
+                PowerUpInsta, R.drawable.powerupinstawin,  // Other powerups don't exist here
+                null, 0);
+
+        // Add the PowerUpView to your game layout
+        RelativeLayout.LayoutParams powerUpParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        powerUpParams.leftMargin = (int) powerUpX;
+        powerUpParams.topMargin = (int) powerUpY;
+        gameLayout.addView(instaWin, powerUpParams);
         createBoard();
 
         // tilemap.setSomeProperty(value);

@@ -2900,10 +2900,14 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable amongus1
+drawable amongus1attack
 drawable amongus2
+drawable amongus2attack
 drawable amongus3
+drawable amongus3attack
 drawable avd_hide_password
 drawable avd_show_password
+drawable blood
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2923,6 +2927,10 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable dungenintro
+drawable enemy1
+drawable enemy2
+drawable enemy3
+drawable enemy4
 drawable goldtexture
 drawable grasstexture
 drawable ic_arrow_back_black_24
@@ -2941,6 +2949,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable lavatexture
 drawable leaftexture
+drawable lose_background
 drawable lose_icon
 drawable m3_appbar_background
 drawable m3_avd_hide_password
@@ -3014,10 +3023,15 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable poweruphealth
+drawable powerupinstawin
+drawable powerupslashdash
+drawable sword
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable white_outline
+drawable win_background
 drawable win_icon
 id ALT
 id BOTTOM_END
@@ -3281,6 +3295,7 @@ id line3
 id linear
 id listMode
 id list_item
+id lose_background
 id m3_side_sheet
 id marquee
 id masked
@@ -3540,6 +3555,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id west
+id win_background
 id withText
 id with_icon
 id withinBounds

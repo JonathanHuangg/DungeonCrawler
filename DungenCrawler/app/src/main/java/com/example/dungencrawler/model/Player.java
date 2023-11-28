@@ -3,7 +3,7 @@ import android.graphics.Bitmap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements  PlayerInterface{
     //more to be added as game develops
     private int attackStatus;
     private String name;
