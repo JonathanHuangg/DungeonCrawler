@@ -1,6 +1,6 @@
 package com.example.dungencrawler.model;
 
-public class PowerUpSlashAndDash extends PowerUpDecorator {
+public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp{
     private static final float DASH_DISTANCE = 20.0f;
     private static final int ATTACK = 1;
     private static final int NOTATTACK = 0;
