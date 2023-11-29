@@ -1,9 +1,8 @@
 package com.example.dungencrawler.model;
-import android.graphics.Bitmap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player implements  PlayerInterface{
+public class Player implements  PlayerInterface {
     //more to be added as game develops
     private int attackStatus;
     private String name;
@@ -64,7 +63,9 @@ public class Player implements  PlayerInterface{
     public void setName(String name) {
         this.name = name;
     }
-    public void setAttackStatus(int status) {this.attackStatus = status;}
+    public void setAttackStatus(int status) {
+        this.attackStatus = status;
+    }
     public void setHealth(int health) {
         if (health > 0) {
             this.health = health;

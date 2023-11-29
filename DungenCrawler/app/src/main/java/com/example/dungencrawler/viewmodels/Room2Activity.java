@@ -80,7 +80,6 @@ public class Room2Activity extends AppCompatActivity {
         gameLayout = findViewById(R.id.gameLayOut);
         difficulty = (Difficulty) i.getSerializableExtra("difficulty");
         Observer obs = Observer.getObserver();
-
         // set enemy attack value and movement speed based on difficulty
         if (difficulty == Difficulty.easy) {
             enemyAttackDamage = 1;
@@ -97,11 +96,9 @@ public class Room2Activity extends AppCompatActivity {
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
-
         character1.setVisibility(View.INVISIBLE);
         character2.setVisibility(View.INVISIBLE);
         character3.setVisibility(View.INVISIBLE);
-
         character = i.getIntExtra("character", 1);
         int charId;
         if (character == 1) {
@@ -121,7 +118,6 @@ public class Room2Activity extends AppCompatActivity {
         sword = new Sword(0, 0);
         swordView = new SwordView(this, sword, R.drawable.sword);
         swordView.setVisibility(View.INVISIBLE);
-
         // Want enemies appear randomly on the right half of the screen
         int randX1 = widthOfScreen / 4 + random.nextInt(widthOfScreen / 2);
         int randY1 = random.nextInt(heightOfScreen);
@@ -132,7 +128,6 @@ public class Room2Activity extends AppCompatActivity {
         enemy3 = enemy3Creator.createEnemy(randX1, randY1, enemyAttackDamage);
         setRandomEnemyDirection(enemy3);
         enemy3View = new EnemyView(this, enemy3, R.drawable.enemy3);
-
         enemy4Creator = new Enemy4Creator();
         enemy4 = enemy4Creator.createEnemy(randX2, randY2, enemyAttackDamage);
         setRandomEnemyDirection(enemy4);
@@ -188,12 +183,12 @@ public class Room2Activity extends AppCompatActivity {
                 if (!enemy3.isDead() && playerEnemyCollideAttack(enemy3, player)) {
                     gameLayout.removeView(enemy3View);
                     enemy3.kill();
-                    score+=100;
+                    score += 100;
                 }
                 if (!enemy4.isDead() && playerEnemyCollideAttack(enemy4, player)) {
                     gameLayout.removeView(enemy4View);
                     enemy4.kill();
-                    score+=100;
+                    score += 100;
                 }
 
                 if (playerPowerUpCollide(player, powerUpInsta, 100, 100, 100, 100)) {
@@ -217,7 +212,7 @@ public class Room2Activity extends AppCompatActivity {
 
             public void onFinish() {
                 if (player.getHealth() > 0) {
-                    endGame(username, 0);
+                    endGame(username, score);
                 }
             }
 

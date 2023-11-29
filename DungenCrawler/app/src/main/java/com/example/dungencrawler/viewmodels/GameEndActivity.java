@@ -47,8 +47,9 @@ public class GameEndActivity extends AppCompatActivity {
             } else if (difficulty == Difficulty.hard) {
                 healthParameter = healthParameter * 16;
             } else if (difficulty == Difficulty.easy) {
+                healthParameter = healthParameter * 1;
             }
-            if(score!= 0) {
+            if (score != 0) {
                 score = score + healthParameter;
             }
 
