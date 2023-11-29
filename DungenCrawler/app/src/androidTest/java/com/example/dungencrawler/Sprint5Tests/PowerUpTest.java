@@ -1,5 +1,6 @@
 package com.example.dungencrawler.Sprint5Tests;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import com.example.dungencrawler.model.Enemy;
@@ -32,5 +33,17 @@ public class PowerUpTest {
         PowerUpInstaWin powerUpHealth = new PowerUpInstaWin(player, powerUpX, powerUpY);
         powerUpHealth.setPlayerWinResult(100);
         assertEquals(true, player.getPlayerWinResult());
+    }
+
+    @Test
+    public void powerUpHealthComplexTest() {
+        Player player = new Player("Justin", 1000, 0, 0);
+        PowerUpHealth powerUpHealth = new PowerUpHealth(player, 0, 0);
+        powerUpHealth.setHealth(100);
+        assertEquals(1100, player.getHealth());
+        player.setHealth(500);
+        PowerUpHealth negativeHealth = new PowerUpHealth(player, 0, 0);
+        negativeHealth.setHealth(-400);
+        assertEquals(player.getHealth(), 100);
     }
 }
