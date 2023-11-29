@@ -1,5 +1,6 @@
 package com.example.dungencrawler.Sprint5Tests;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import com.example.dungencrawler.model.Enemy;
@@ -16,12 +17,21 @@ public class PlayerAttackTest {
         player1.setAttackStatus(1);
         assertEquals(1, player1.getAttackStatus(), 1);
     }
+    @Test
     public void testPlayerEnemyCollideAttack() {
         EnemyCreator enemy1Creator = new Enemy1Creator();
         Player player1 = new Player("Edison", 1000, 0, 0);
         Enemy enemy1 = enemy1Creator.createEnemy(0, 0, 50);
         player1.setAttackStatus(1);
         assertTrue(playerEnemyCollideAttack(enemy1, player1));
+    }
+    @Test
+    public void testFalsePlayerEnemyCollideAttack() {
+        EnemyCreator enemy1Creator = new Enemy1Creator();
+        Player player1 = new Player("Justin", 1000, 300, 300);
+        Enemy enemy1 = enemy1Creator.createEnemy(0, 0, 100);
+        player1.setAttackStatus(1);
+        assertFalse(playerEnemyCollideAttack(enemy1, player1));
     }
 
     private boolean playerEnemyCollideAttack(Enemy enemy, Player player) {
