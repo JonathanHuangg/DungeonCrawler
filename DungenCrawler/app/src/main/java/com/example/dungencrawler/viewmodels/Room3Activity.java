@@ -96,7 +96,6 @@ public class Room3Activity extends AppCompatActivity {
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
-
         character1.setVisibility(View.INVISIBLE);
         character2.setVisibility(View.INVISIBLE);
         character3.setVisibility(View.INVISIBLE);
@@ -114,7 +113,6 @@ public class Room3Activity extends AppCompatActivity {
         //Initialize game objects (player, enemies, etc)
         player = Player.getPlayer();
         playerView = new PlayerView(this, player, charId);
-
         player.setPlayerX((float) (widthOfScreen * 0.03));
         player.setPlayerY((float) (heightOfScreen * 0.03));
         sword = new Sword(0, 0);
@@ -131,7 +129,6 @@ public class Room3Activity extends AppCompatActivity {
         enemy2 = enemy2Creator.createEnemy(randX1, randY1, enemyAttackDamage);
         setRandomEnemyDirection(enemy2);
         enemy2View = new EnemyView(this, enemy2, R.drawable.enemy2);
-
         enemy4Creator = new Enemy4Creator();
         enemy4 = enemy4Creator.createEnemy(randX2, randY2, enemyAttackDamage);
         setRandomEnemyDirection(enemy4);
@@ -150,13 +147,11 @@ public class Room3Activity extends AppCompatActivity {
         float powerUpX = 100;
         float powerUpY = 100;
         PowerUpHealth powerUpHealth = new PowerUpHealth(player, powerUpX, powerUpY);
-
         // Initialize the PowerUpView for Health
         PowerUpView powerUpHealthView = new PowerUpView(this,
                 null, 0,
                 null, 0,  // Other powerups don't exist here
                 powerUpHealth, R.drawable.poweruphealth);
-
         // Add the PowerUpView to your game layout
         RelativeLayout.LayoutParams powerUpParams = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -187,12 +182,12 @@ public class Room3Activity extends AppCompatActivity {
                 if (!enemy2.isDead() && playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
                     enemy2.kill();
-                    score+=100;
+                    score += 100;
                 }
                 if (!enemy4.isDead() && playerEnemyCollideAttack(enemy4, player)) {
                     gameLayout.removeView(enemy4View);
                     enemy4.kill();
-                    score+=100;
+                    score += 100;
                 }
 
                 if (playerPowerUpCollide(player, powerUpHealth, 100, 100, 100, 100)) {
@@ -328,7 +323,6 @@ public class Room3Activity extends AppCompatActivity {
         if (playerView.getPlayerPosition() > 2100) {
             navigateToEndScreen(username, score + additionalScore, text);
         }
-
         return true;
     }
     public void endGame(String name, int score) {

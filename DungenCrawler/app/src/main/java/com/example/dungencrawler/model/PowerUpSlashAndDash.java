@@ -51,4 +51,8 @@ public class PowerUpSlashAndDash extends PowerUpDecorator implements PowerUp {
             }
         }
     }
+
+    public void setIsDashing(boolean bool) {
+        isDashing = bool;
+    }
 }

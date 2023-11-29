@@ -73,9 +73,7 @@ public class Room1Activity extends AppCompatActivity {
         heightOfScreen = displayMetrics.heightPixels;
         gameLayout = findViewById(R.id.gameLayOut);
         difficulty = (Difficulty) i.getSerializableExtra("difficulty");
-
         Observer obs = Observer.getObserver();
-
         // set enemy attack value and movement speed based on difficulty
         if (difficulty == Difficulty.easy) {
             enemyAttackDamage = 1;
@@ -93,7 +91,6 @@ public class Room1Activity extends AppCompatActivity {
         ImageView character1 = findViewById(R.id.character1);
         ImageView character2 = findViewById(R.id.character2);
         ImageView character3 = findViewById(R.id.character3);
-
         character1.setVisibility(View.INVISIBLE);
         character2.setVisibility(View.INVISIBLE);
         character3.setVisibility(View.INVISIBLE);
@@ -182,12 +179,12 @@ public class Room1Activity extends AppCompatActivity {
                 if (!enemy1.isDead() && playerEnemyCollideAttack(enemy1, player)) {
                     gameLayout.removeView(enemy1View);
                     enemy1.kill();
-                    score+=100;
+                    score += 100;
                 }
                 if (!enemy2.isDead() && playerEnemyCollideAttack(enemy2, player)) {
                     gameLayout.removeView(enemy2View);
                     enemy2.kill();
-                    score+=100;
+                    score += 100;
                 }
                 if (playerPowerUpCollide(player, powerUpSlash, 100, 100, 100, 100)) {
                     // Start the dash if not already dashing

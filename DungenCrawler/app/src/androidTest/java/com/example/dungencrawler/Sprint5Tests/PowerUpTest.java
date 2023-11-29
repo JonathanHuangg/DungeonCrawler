@@ -24,15 +24,36 @@ public class PowerUpTest {
         powerUpHealth.setHealth(100);
         assertEquals(200, player.getHealth());
     }
-    //Test PowerUp at incorrect Location
+    //Test PowerUp for a win Location
     @Test
     public void powerUpWinTest() {
-        Player player = new Player("test", 100, 50, 50);
+        Player player = new Player("test", 100, 100, 100);
         float powerUpX = 100;
         float powerUpY = 100;
         PowerUpInstaWin powerUpHealth = new PowerUpInstaWin(player, powerUpX, powerUpY);
         powerUpHealth.setPlayerWinResult(100);
         assertEquals(true, player.getPlayerWinResult());
+    }
+    @Test
+    public void powerUpDash() {
+        Player player = new Player("test", 100, 100, 100);
+        float powerUpX = 100;
+        float powerUpY = 100;
+        PowerUpSlashAndDash dash = new PowerUpSlashAndDash(player, powerUpX, powerUpY);
+        dash.startDash();
+        dash.updateDash();
+        assertEquals(130, player.getPlayerX(), 0);
+    }
+    @Test
+    public void powerUpDashFail() {
+        Player player = new Player("test", 100, 100, 100);
+        float powerUpX = 100;
+        float powerUpY = 100;
+        PowerUpSlashAndDash dash = new PowerUpSlashAndDash(player, powerUpX, powerUpY);
+        dash.startDash();
+        dash.setIsDashing(false);
+        dash.updateDash();
+        assertEquals(100, player.getPlayerX(), 0);
     }
 
     @Test
