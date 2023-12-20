@@ -12,7 +12,6 @@ public class Player implements  PlayerInterface {
     private static Player player;
     private EntityStrategy entityStrategy;
     private List<Subscriber> subscribers = new ArrayList<>();
-
     private boolean winResult;
 
     public Player(String name, int health, float x, float y) {
